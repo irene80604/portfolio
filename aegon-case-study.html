@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irene Yingju Portfolio — Aegon Case Study</title>
+<style>
+  :root{
+    --bg: #f7f9ff;
+    --bg-card: #ffffff;
+    --navy: #001430;
+    --navy-soft: #2b3648;
+    --body-text: #565b66;
+    --muted: #7b8697;
+    --gold: #9b3412;
+    --gold-bar: #c9973a;
+    --red: #c54b55;
+    --border: #e3e7f1;
+    --border-soft: #eceff6;
+    --active-step: #08244f;
+    --inactive-step: #9aa2af;
+    --blue-accent: #1c4fd6;
+    --yellow-accent: #e8b930;
+    --max-width: 1280px;
+    --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  *, *::before, *::after{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img{ max-width: 100%; display: block; }
+
+  a{ color: inherit; text-decoration: none; }
+
+  .wrap{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 6.25rem;
+  }
+
+  /* ---------- Header ---------- */
+
+  .site-header{
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .site-header .wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .logo{
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  .main-nav{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .main-nav a{
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--navy);
+  }
+
+  .main-nav a.active{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1.5px;
+  }
+
+  .main-nav a:not(.active){
+    color: var(--muted);
+  }
+
+  .icon-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: var(--navy);
+    border-radius: 5px;
+    color: #fff;
+  }
+  .icon-btn svg{ width: 14px; height: 14px; }
+
+  /* ---------- Hero ---------- */
+
+  .hero{
+    padding-top: 5.5rem;
+  }
+
+  .hero .wrap{
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 4.5rem;
+    align-items: center;
+  }
+
+  .eyebrow{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .eyebrow .bar{
+    width: 4px;
+    height: 16px;
+    background: var(--gold);
+    border-radius: 1px;
+  }
+
+  .eyebrow span{
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .hero h1{
+    font-size: 2.9rem;
+    line-height: 1.12;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.6rem;
+    color: var(--navy);
+  }
+
+  .hero p.lede{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--body-text);
+    max-width: none;
+    margin: 0 0 2.2rem;
+  }
+
+  .tool-badge{
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    overflow: hidden;
+  }
+
+  /* ---------- Product mock card (right side of hero) ---------- */
+
+  .device-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem 1.75rem;
+    box-shadow: 0 30px 60px -35px rgba(15, 30, 60, 0.25);
+  }
+
+  .device-card__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+  }
+
+  .device-card__header h2{
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin: 0;
+    color: var(--navy);
+  }
+
+  .dots{
+    display: flex;
+    gap: 5px;
+  }
+  .dots span{
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #d7dbe6;
+  }
+  .dots span.on{ background: var(--navy); }
+
+  .device-card__image{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .payout-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.1rem;
+  }
+  .payout-head__title{
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--navy);
+  }
+  .payout-head__link{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--blue-accent);
+  }
+  .payout-head__link svg{ width: 12px; height: 12px; }
+
+  .payout-columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .payout-col{
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg-card);
+  }
+
+  .payout-col__title{
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: center;
+    padding: 0.85rem 0 0.7rem;
+    border-bottom: 1px solid var(--navy);
+    margin: 0 0.85rem;
+  }
+
+  .payout-col__body{
+    padding: 0.7rem 0.85rem 0;
+  }
+
+  .payout-col .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.74rem;
+    color: var(--navy-soft);
+    padding: 0.3rem 0;
+  }
+  .payout-col .row.legend{
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .divider-dotted{
+    border-top: 1.5px dotted #c7ccd6;
+    margin: 0.5rem 0 0.35rem;
+  }
+
+  .swatch{
+    width: 9px; height: 9px; border-radius: 2px;
+    display: inline-block; margin-right: 7px;
+  }
+  .swatch.blue{ background: var(--blue-accent); }
+  .swatch.yellow{ background: var(--yellow-accent); }
+
+  .payout-col__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #eeece3;
+    padding: 0.8rem 0.85rem;
+    margin-top: 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .payout-col__footer .amount{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+  .payout-col__footer .amount-line{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .payout-col__footer small{
+    display: block;
+    font-weight: 500;
+    color: var(--muted);
+    font-size: 0.62rem;
+  }
+  .payout-col--warn .payout-col__footer .amount-line{ color: var(--red); }
+  .warn-icon{ width: 13px; height: 13px; flex-shrink: 0; }
+
+  .chart-y-axis{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    color: var(--navy-soft);
+    font-weight: 600;
+    text-align: right;
+    height: 190px;
+    padding-bottom: 1.6rem;
+  }
+
+  .bar-chart-wrap{
+    display: flex;
+    gap: 0.7rem;
+    margin: 0.5rem 0 0.6rem;
+  }
+
+  .chart-area{
+    flex: 1;
+    position: relative;
+    height: 190px;
+  }
+
+  .chart-gridlines{
+    position: absolute;
+    inset: 0 0 1.6rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .chart-gridlines span{
+    border-top: 1.5px dotted #c7ccd6;
+    display: block;
+  }
+  .chart-gridlines span:last-child{
+    border-top: 1.5px solid #9aa2af;
+  }
+
+  .bar-groups{
+    position: absolute;
+    inset: 0 0 1.6rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+  }
+
+  .bar-group{
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 100%;
+  }
+  .bar-group .bar{
+    width: 26px;
+    border-radius: 2px 2px 0 0;
+  }
+  .bar-group .bar.blue{ background: var(--blue-accent); }
+  .bar-group .bar.yellow{ background: var(--yellow-accent); }
+
+  .chart-x-labels{
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .chart-x-labels .x-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    transform: translateY(1.35rem);
+  }
+  .chart-x-labels .warn-icon{ width: 14px; height: 14px; }
+
+  .callout{
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    background: #fdf6e6;
+    border-radius: 8px;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    color: #7a5c17;
+  }
+
+  /* ---------- Scroll cue ---------- */
+
+  .scroll-cue{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 4.5rem 0 5rem;
+    margin: 0 auto;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: inherit;
+    width: 100%;
+    transition: color 0.2s ease;
+  }
+  .scroll-cue:hover,
+  .scroll-cue:focus-visible{
+    color: var(--navy);
+  }
+  .scroll-cue:focus-visible{
+    outline: 2px solid var(--blue-accent);
+    outline-offset: 6px;
+    border-radius: 4px;
+  }
+  .scroll-cue span{
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+  .scroll-cue .line{
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-cue .line::after{
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--navy);
+    animation: scroll-line 1.8s ease-in-out infinite;
+  }
+  .scroll-cue:hover .line::after,
+  .scroll-cue:focus-visible .line::after{
+    background: var(--blue-accent);
+  }
+
+  @keyframes scroll-line{
+    0%{ top: -100%; }
+    60%{ top: 100%; }
+    100%{ top: 100%; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .scroll-cue .line::after{ animation: none; top: 0; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ---------- Context section ---------- */
+
+  .context{
+    padding-bottom: 4rem;
+  }
+
+  .context p.section-label{
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin: 0 0 1.5rem;
+    line-height: normal;
+    max-width: none;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .section-label .bar{
+    width: 4px;
+    height: 16px;
+    background: var(--gold);
+    border-radius: 1px;
+  }
+
+  .section-label span{
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .context h2{
+    font-size: 2rem;
+    line-height: 1.28;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    max-width: 46ch;
+    margin: 0 0 1.5rem;
+  }
+
+  .context p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    max-width: 68ch;
+    margin: 0;
+  }
+
+  /* ---------- Onboarding stepper ---------- */
+
+  .flow{
+    padding-bottom: 6rem;
+  }
+
+  .onboarding-stepper{
+    margin-bottom: 2.5rem;
+    padding: 0 3rem;
+    touch-action: pan-y;
+    user-select: none;
+  }
+
+  .onboarding-stepper ol{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .onboarding-stepper ol::before{
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .onboarding-stepper li{
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .step-num{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: var(--bg-card);
+    border: 1.5px solid var(--inactive-step);
+    color: var(--inactive-step);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .step-btn:focus-visible{
+    outline: 2px solid var(--blue-accent);
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+
+  .step-btn.is-active .step-num{
+    background: var(--active-step);
+    border-color: var(--active-step);
+    color: #fff;
+  }
+
+  .step-label{
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy-soft);
+  }
+
+  /* ---------- Onboarding stage (single visible image) ---------- */
+
+  .onboarding-stage{
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 3 / 4.6;
+    margin: 0 auto;
+  }
+
+  .onboarding-slide{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0 18px 30px -24px rgba(15, 30, 60, 0.28);
+    opacity: 0;
+    transform: translateX(24px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .onboarding-slide.is-active{
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+  }
+
+  .onboarding-slide.is-leaving-back{
+    transform: translateX(-24px) scale(0.98);
+  }
+
+  .onboarding-slide.placeholder{
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+      135deg, #d9dde6, #d9dde6 6px, #ccd0da 6px, #ccd0da 12px
+    );
+    border-style: dashed;
+    border-color: #b9bfcc;
+  }
+  .onboarding-slide.placeholder span{
+    background: rgba(255,255,255,0.85);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--navy-soft);
+    letter-spacing: 0.05em;
+  }
+
+  .frame__title{
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--navy-soft);
+    margin-bottom: 0.5rem;
+  }
+
+  .skeleton-line{
+    height: 5px;
+    border-radius: 2px;
+    background: #e7eaf1;
+    margin-bottom: 5px;
+  }
+  .skeleton-line.short{ width: 55%; }
+  .skeleton-line.med{ width: 75%; }
+
+  .skeleton-field{
+    height: 14px;
+    border-radius: 3px;
+    background: #f1f3f8;
+    border: 1px solid var(--border-soft);
+    margin-bottom: 6px;
+  }
+
+  .skeleton-btn{
+    height: 14px;
+    border-radius: 3px;
+    background: var(--blue-accent);
+    margin-top: 8px;
+  }
+
+  .mini-chart{
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 60px;
+    margin: 8px 0;
+  }
+  .mini-chart .bar{
+    flex: 1;
+    background: var(--blue-accent);
+    border-radius: 1px;
+  }
+  .mini-chart .bar:nth-child(2){ background: var(--yellow-accent); }
+
+  /* ---------- Drop-off indicator (step 2 only) ---------- */
+
+  .onboarding-dropoff{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.15;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-6px);
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, margin-top 0.3s ease;
+  }
+
+  .onboarding-dropoff.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 3rem;
+  }
+
+  .onboarding-dropoff svg{ width: 17px; height: 21px; flex-shrink: 0; }
+
+  /* ---------- Shared research section basics ---------- */
+
+  .research{
+    padding-bottom: 6rem;
+  }
+
+  .research__intro{
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .research__intro h2{
+    font-size: 1.9rem;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin: 0 0 0.9rem;
+  }
+
+  .research__intro p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    margin: 0;
+  }
+
+  /* ---------- Primary research ---------- */
+
+  .primary-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .research-figure{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.4rem;
+    box-shadow: 0 20px 40px -30px rgba(15, 30, 60, 0.25);
+  }
+
+  .research-figure__dots{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 1rem;
+  }
+  .research-figure__dots span{
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #d7dbe6;
+  }
+
+  .research-figure h3{
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.2rem;
+  }
+
+  .afm-chart{
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 140px;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 0 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .afm-chart .bar{
+    flex: 1;
+    background: #6b3fa0;
+    border-radius: 2px 2px 0 0;
+  }
+  .afm-chart-labels{
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    font-size: 0.55rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  .afm-chart-labels span{ flex: 1; }
+
+  .research-figure__source{
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-align: center;
+    margin: 1rem 0 0;
+  }
+
+  .stat-group{
+    margin-bottom: 2rem;
+  }
+  .stat-group:last-child{ margin-bottom: 0; }
+
+  .stat-group h4{
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.1rem;
+  }
+
+  .stat-row{
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .stat-row:last-child{ margin-bottom: 0; }
+
+  .stat-number{
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 4ch;
+  }
+
+  .stat-text{
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--body-text);
+  }
+
+  .guidance-item{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+  .guidance-item:last-child{ margin-bottom: 0; }
+
+  .icon-box{
+    width: 40px;
+    height: 40px;
+    border-radius: 9px;
+    background: var(--active-step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .icon-box svg{ width: 20px; height: 20px; color: #fff; }
+
+  .guidance-item p{
+    font-size: 0.9rem;
+    line-height: 1.45;
+    color: var(--navy-soft);
+    margin: 0;
+  }
+
+  /* ---------- Secondary research ---------- */
+
+  .segment-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.6rem;
+    align-items: stretch;
+  }
+
+  .segment-card{
+    background: #f1f4f9;
+    border-radius: 14px;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .segment-card h4{
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-soft);
+    margin: 0 0 0.9rem;
+  }
+
+  .segment-list{
+    list-style: none;
+    margin: 0 0 0.2rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .segment-list li{
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .segment-list svg{ width: 18px; height: 18px; color: var(--navy-soft); flex-shrink: 0; }
+
+  .questions-card{
+    background: var(--active-step);
+    border-radius: 12px;
+    padding: 1.2rem 1.3rem;
+    color: #fff;
+  }
+  .questions-card h4{
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #cfd9ea;
+    margin: 0 0 0.9rem;
+  }
+  .questions-card ol{
+    margin: 0;
+    padding-left: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .questions-card li{
+    font-size: 0.85rem;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .quote-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quote-card__media{
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #0d1b2e, #16263f);
+    display: flex;
+    align-items: flex-end;
+    padding: 0.9rem;
+  }
+
+  .quote-card__badge{
+    background: var(--gold-bar);
+    color: #2b1b03;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+  }
+
+  .quote-card__body{
+    padding: 1.3rem 1.4rem 1.5rem;
+  }
+  .quote-card__body h4{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.6rem;
+    line-height: 1.3;
+  }
+  .quote-card__body p{
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--body-text);
+    margin: 0;
+  }
+
+  /* ---------- Comprehension journey ---------- */
+
+  .journey-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.2rem 2.4rem 2.6rem;
+  }
+
+  .journey-card__intro{
+    max-width: 60ch;
+    margin-bottom: 2.2rem;
+  }
+  .journey-card__intro h3{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.6rem;
+  }
+  .journey-card__intro p{
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--body-text);
+    margin: 0;
+  }
+
+  .journey-tabs{
+    display: grid;
+    grid-template-columns: 8rem repeat(5, 1fr);
+    gap: 2px;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .journey-tabs span{
+    background: #eef1f6;
+    color: var(--navy-soft);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.7rem 0.5rem;
+    text-align: center;
+  }
+  .journey-tabs span:first-child{
+    background: var(--navy-soft);
+    color: #fff;
+    text-align: left;
+    padding-left: 1rem;
+  }
+  .journey-tabs span.is-current{
+    background: var(--active-step);
+    color: #fff;
+  }
+
+  .journey-row{
+    display: grid;
+    grid-template-columns: 8rem repeat(5, 1fr);
+    align-items: center;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border-soft);
+  }
+  .journey-row:first-of-type{ border-top: none; }
+
+  .journey-row__label{
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy-soft);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    justify-self: start;
+  }
+
+  .journey-row__track{
+    grid-column: 2 / -1;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .journey-row__track::before{
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 50%;
+    height: 1px;
+    background: var(--border);
+    z-index: 0;
+  }
+
+  .face{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background: var(--bg-card);
+  }
+  .face svg{ width: 30px; height: 30px; }
+  .face--good svg circle{ fill: #22c55e; }
+  .face--okay svg circle{ fill: #f5a524; }
+  .face--bad svg circle{ fill: #ef4444; }
+
+  /* ---------- Footer spacer ---------- */
+  .page-footer{
+    height: 4rem;
+  }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 960px){
+    .wrap{ padding: 0 1.75rem; }
+    .hero .wrap{ grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero{ padding-top: 3rem; }
+    .hero h1{ font-size: 2.2rem; }
+    .context h2{ font-size: 1.7rem; }
+    .onboarding-stepper{ padding: 0 0.5rem; overflow-x: auto; }
+    .onboarding-stepper ol{ grid-template-columns: repeat(5, minmax(90px,1fr)); min-width: 560px; }
+    .main-nav{ gap: 1.2rem; }
+    .main-nav a{ font-size: 0.78rem; }
+    .primary-grid{ grid-template-columns: 1fr; gap: 2rem; }
+    .segment-grid{ grid-template-columns: 1fr; }
+    .journey-card{ padding: 1.5rem; }
+    .journey-tabs, .journey-row{ grid-template-columns: 5.5rem repeat(5, 1fr); }
+    .journey-row__label{ writing-mode: horizontal-tb; transform: none; font-size: 0.72rem; }
+  }
+
+  @media (max-width: 560px){
+    .onboarding-stage{ max-width: 280px; }
+    .journey-card{ overflow-x: auto; }
+    .journey-tabs, .journey-row{ min-width: 480px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="#top">Irene Yingju Portfolio</a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#case-studies" class="active">Case Studies</a>
+        <a href="#about">About Me</a>
+        <a href="#linkedin" class="icon-btn" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero" id="case-studies">
+      <div class="wrap">
+
+        <div class="hero__content">
+          <p class="eyebrow"><span class="bar" aria-hidden="true"></span><span>Aegon · 2024</span></p>
+          <h1>Empowering Stress-Free Retirement Decisions</h1>
+          <p class="lede">How we redesigned Aegon's pension payout calculator to help elderly users make confident financial choices without panic.</p>
+          <div class="tool-badge" aria-label="Designed in Figma">
+            <svg viewBox="0 0 24 24" width="40" height="40">
+              <rect width="24" height="24" rx="5" fill="#0d0d0d"/>
+              <g transform="translate(8.1, 6.2) scale(0.145)">
+                <path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/>
+                <path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/>
+                <path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/>
+                <path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/>
+                <path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <figure class="device-card" aria-label="Aegon pension payout calculator screenshot">
+          <div class="device-card__header">
+            <h2>AEGON UITKEREND GRANATIEPENSIOEN</h2>
+            <div class="dots" aria-hidden="true"><span></span><span></span><span class="on"></span></div>
+          </div>
+
+          <img
+            class="device-card__image"
+            src="https://plain-weur-prod-public.komododecks.com/202607/05/2pCxhVNyA50BOs0MaKPn/image.png"
+            alt="Vanaf de leeftijd comparison showing pension payout details and income vs fixed cost chart for 61 jaar + 1 maanden and 67 jaar + 3 maanden"
+            width="994"
+            height="932"
+          >
+        </figure>
+
+      </div>
+    </section>
+
+    <button type="button" class="scroll-cue" id="scrollCue" aria-label="Scroll to explore the case study">
+      <span>SCROLL TO EXPLORE</span>
+      <div class="line" aria-hidden="true"></div>
+    </button>
+
+    <section class="context" id="context">
+      <div class="wrap">
+        <p class="section-label"><span>The Challenge</span></p>
+        <h2>Retirement should be joyful, but it often becomes a coordination challenge as people need to figure out what to do with pension savings.</h2>
+        <p>Conducted 11 in-depth interviews (ages 60–65), with 6 dedicated to accessibility users. Our goal was to uncover hidden friction in the cognitive processing of financial data.</p>
+      </div>
+    </section>
+
+    <section class="flow" id="flow">
+      <div class="wrap">
+
+        <nav class="onboarding-stepper" id="onboardingStepper" aria-label="Onboarding steps">
+          <ol>
+            <li>
+              <button type="button" class="step-btn" data-step="0">
+                <span class="step-num">0</span>
+                <span class="step-label">Quick start</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" data-step="1">
+                <span class="step-num">1</span>
+                <span class="step-label">Go to fixed pension</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn is-active" data-step="2">
+                <span class="step-num">2</span>
+                <span class="step-label">Configure payout method</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" data-step="3">
+                <span class="step-num">3</span>
+                <span class="step-label">Review summary</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="step-btn" data-step="4">
+                <span class="step-num">4</span>
+                <span class="step-label">Download offer</span>
+              </button>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="onboarding-stage" id="onboardingStage">
+          <div class="onboarding-slide" data-step="0">
+            <p class="frame__title">Pensioen berekenen en vrijblijvende offerte aanvragen</p>
+            <div class="skeleton-line med"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-btn"></div>
+          </div>
+
+          <div class="onboarding-slide" data-step="1">
+            <p class="frame__title">Samenvatting</p>
+            <div class="skeleton-line med"></div>
+            <div class="skeleton-line short"></div>
+            <div class="mini-chart">
+              <span class="bar" style="height:60%"></span>
+              <span class="bar" style="height:85%"></span>
+              <span class="bar" style="height:40%"></span>
+            </div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line med"></div>
+            <div class="skeleton-btn"></div>
+          </div>
+
+          <div class="onboarding-slide is-active" data-step="2">
+            <p class="frame__title">Configure payout method</p>
+            <div class="skeleton-line med"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-field" style="height:8px"></div>
+            <div class="skeleton-field" style="height:8px"></div>
+            <div class="mini-chart">
+              <span class="bar" style="height:30%"></span>
+              <span class="bar" style="height:90%"></span>
+            </div>
+            <div class="skeleton-btn"></div>
+          </div>
+
+          <div class="onboarding-slide" data-step="3">
+            <p class="frame__title">Samenvatting</p>
+            <div class="skeleton-line med"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-field"></div>
+            <div class="skeleton-btn"></div>
+          </div>
+
+          <div class="onboarding-slide placeholder" data-step="4">
+            <span>PDF</span>
+          </div>
+        </div>
+
+        <div class="onboarding-dropoff is-visible" id="onboardingDropoff">
+          <svg viewBox="0 0 24 30" fill="none" aria-hidden="true"><path d="M12 0v22M12 22l-8-9M12 22l8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          69% drop-off
+        </div>
+
+      </div>
+    </section>
+
+    <section class="research" id="primary-research">
+      <div class="wrap">
+        <p class="section-label"><span>Primary Research</span></p>
+        <div class="research__intro">
+          <h2>How well do people understand and engage with pensions?</h2>
+        </div>
+
+        <div class="primary-grid">
+          <figure class="research-figure">
+            <div class="research-figure__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3>Popularity of high-low construction: major differences between pension providers</h3>
+            <div class="afm-chart" role="img" aria-label="Bar chart of percentage difference between high and low pension payouts across providers">
+              <div class="bar" style="height:18%"></div>
+              <div class="bar" style="height:62%"></div>
+              <div class="bar" style="height:100%"></div>
+              <div class="bar" style="height:70%"></div>
+              <div class="bar" style="height:38%"></div>
+              <div class="bar" style="height:20%"></div>
+            </div>
+            <div class="afm-chart-labels">
+              <span>&lt;10%</span><span>10–20%</span><span>20–30%</span><span>30–40%</span><span>40–50%</span><span>&gt;50%</span>
+            </div>
+            <p class="research-figure__source">Source: Autoriteit Financiële Markten (AFM)</p>
+          </figure>
+
+          <div class="primary-stats">
+            <div class="stat-group">
+              <h4>Low engagement &amp; Comprehension</h4>
+              <div class="stat-row">
+                <span class="stat-number">60%</span>
+                <p class="stat-text">of people don't regularly check and understand their pension situation.</p>
+              </div>
+              <div class="stat-row">
+                <span class="stat-number">19%</span>
+                <p class="stat-text">of people choose the high-low option, despite every insurer offering this option.</p>
+              </div>
+            </div>
+
+            <div class="stat-group">
+              <h4>Want certainty &amp; Contextual guidance</h4>
+              <div class="guidance-item">
+                <div class="icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 12 14l-4.5 2 2-4.5L14 9z" fill="currentColor" stroke="none"/></svg>
+                </div>
+                <p>Most prefer fixed because of certainty and easier long-term planning.</p>
+              </div>
+              <div class="guidance-item">
+                <div class="icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+                </div>
+                <p>Most want pension fund to reflect their future plans to reduce their anxiety.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="research" id="secondary-research">
+      <div class="wrap">
+        <p class="section-label"><span>Secondary Research</span></p>
+        <div class="research__intro">
+          <h2>Testing comprehension</h2>
+          <p>Conducted 11 in-depth interviews (ages 60–65), with 6 dedicated to accessibility users.</p>
+        </div>
+
+        <div class="segment-grid">
+          <div class="segment-card">
+            <div>
+              <h4>User Segment</h4>
+              <ul class="segment-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13M4 19h16M4 19l4-4M20 19l-4-4"/></svg>
+                  Dyslexia (N=2)
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20V8"/></svg>
+                  Low literacy (N=2)
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12a4 4 0 1 1 8 0M12 16v.01"/></svg>
+                  Low digital skills (N=2)
+                </li>
+              </ul>
+            </div>
+            <div class="questions-card">
+              <h4>Core Research Questions</h4>
+              <ol>
+                <li>Can they explain what they understand after reading?</li>
+                <li>Is the explanation correct?</li>
+                <li>How confident are they?</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="quote-card">
+            <div class="quote-card__media">
+              <span class="quote-card__badge">Interview</span>
+            </div>
+            <div class="quote-card__body">
+              <h4>"The text just blurs together."</h4>
+              <p>"I try to read and understand it, but it is too difficult. Why don't I just get the money and everything is fine."</p>
+            </div>
+          </figure>
+
+          <figure class="quote-card">
+            <div class="quote-card__media">
+              <span class="quote-card__badge">Report</span>
+            </div>
+            <div class="quote-card__body">
+              <h4>"Where did the button go?"</h4>
+              <p>Hidden actions and complex navigation structures caused users to lose their place in the critical payout flow.</p>
+            </div>
+          </figure>
+        </div>
+
+        <div class="journey-card">
+          <div class="journey-card__intro">
+            <h3>Map comprehension levels against the user journey</h3>
+            <p>In this case, I also mapped other subjective assessments: trust and usability.</p>
+          </div>
+
+          <div class="journey-tabs">
+            <span>Journey</span>
+            <span>Step 0</span>
+            <span>Step 1</span>
+            <span class="is-current">Step 2</span>
+            <span>Step 3</span>
+            <span>Step 4</span>
+          </div>
+
+          <div class="journey-row">
+            <span class="journey-row__label">Comprehension</span>
+            <div class="journey-row__track">
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--okay">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--bad">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 13h.01M20 13h.01M10 20c1.5-1.4 8.5-1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="journey-row">
+            <span class="journey-row__label">Trust</span>
+            <div class="journey-row__track">
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--okay">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--okay">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--okay">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="journey-row">
+            <span class="journey-row__label">Usability</span>
+            <div class="journey-row__track">
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--okay">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19h10" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+              <span class="face face--good">
+                <svg viewBox="0 0 30 30"><circle cx="15" cy="15" r="15"/><path d="M10 12h.01M20 12h.01M10 19c1.5 1.4 8.5 1.4 10 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="page-footer" id="about"></div>
+
+  <script>
+    (function(){
+      var trigger = document.getElementById('scrollCue');
+      if(!trigger) return;
+
+      function getNextSection(el){
+        var node = el.nextElementSibling;
+        while(node && node.tagName !== 'SECTION'){
+          node = node.nextElementSibling;
+        }
+        return node;
+      }
+
+      trigger.addEventListener('click', function(){
+        var target = getNextSection(trigger);
+        if(target){
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var stepper = document.getElementById('onboardingStepper');
+      var stage = document.getElementById('onboardingStage');
+      var dropoff = document.getElementById('onboardingDropoff');
+      if(!stepper || !stage) return;
+
+      var buttons = Array.prototype.slice.call(stepper.querySelectorAll('.step-btn'));
+      var slides = Array.prototype.slice.call(stage.querySelectorAll('.onboarding-slide'));
+      var DROPOFF_STEP = 2;
+      var current = buttons.findIndex(function(b){ return b.classList.contains('is-active'); });
+      if(current < 0) current = 0;
+
+      function goTo(index){
+        index = Math.max(0, Math.min(slides.length - 1, index));
+        if(index === current) return;
+
+        var goingForward = index > current;
+
+        buttons.forEach(function(btn, i){
+          btn.classList.toggle('is-active', i === index);
+        });
+
+        slides.forEach(function(slide, i){
+          slide.classList.remove('is-leaving-back');
+          if(i === index){
+            slide.classList.add('is-active');
+          } else {
+            slide.classList.remove('is-active');
+            if(!goingForward){
+              // slide toward the right when moving backward, so it re-enters from the left next time
+              slide.classList.add('is-leaving-back');
+            }
+          }
+        });
+
+        if(dropoff){
+          dropoff.classList.toggle('is-visible', index === DROPOFF_STEP);
+        }
+
+        current = index;
+      }
+
+      buttons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          goTo(parseInt(btn.getAttribute('data-step'), 10));
+        });
+      });
+
+      // Swipe support
+      var touchStartX = null;
+      var touchStartY = null;
+      var SWIPE_THRESHOLD = 40;
+
+      stepper.addEventListener('touchstart', function(e){
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      stepper.addEventListener('touchend', function(e){
+        if(touchStartX === null) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if(Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)){
+          goTo(dx < 0 ? current + 1 : current - 1);
+        }
+        touchStartX = null;
+        touchStartY = null;
+      });
+
+      // Also allow swiping directly on the stage
+      stage.addEventListener('touchstart', function(e){
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      stage.addEventListener('touchend', function(e){
+        if(touchStartX === null) return;
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if(Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)){
+          goTo(dx < 0 ? current + 1 : current - 1);
+        }
+        touchStartX = null;
+        touchStartY = null;
+      });
+    })();
+  </script>
+</body>
+</html>
