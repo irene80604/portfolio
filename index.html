@@ -98,7 +98,7 @@
     height: 26px;
     background: var(--navy);
     border-radius: 5px;
-    color: #fff;
+    color: white;
   }
   .icon-btn svg{ width: 14px; height: 14px; }
 
@@ -771,7 +771,7 @@
 
 
   .process-step.is-active .process-step__card{
-    border-color: var(--active-step);
+    border-color: var(--gold);
     box-shadow: 0 18px 30px -18px rgba(8, 36, 79, 0.35);
     transform: translateY(-3px);
   }
@@ -1107,7 +1107,7 @@
   .insight-card{
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 24px;
+    border-radius: 14px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -1169,10 +1169,9 @@
     color: var(--navy);
   }
   .insight-list svg{
-    width: 1.75em;
-    height: 1.75em;
+    width: 20px;
+    height: 20px;
     color: var(--navy);
-    flex-shrink: 0;
   }
 
   .insight-questions{
@@ -1647,10 +1646,6 @@
     padding-bottom: 2rem;
   }
 
-  .solution__label{
-    margin-bottom: 3.5rem;
-  }
-
   .solution-row{
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
@@ -1706,12 +1701,12 @@
     height: 42px;
     flex-shrink: 0;
     border-radius: 10px;
-    background: #eef1f6;
+    background: var(--navy);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .solution-highlight__icon svg{ width: 20px; height: 20px; color: var(--navy); }
+  .solution-highlight__icon svg{ width: 20px; height: 20px; color: white; }
 
   .solution-highlight h4{
     font-size: 0.98rem;
@@ -1757,11 +1752,11 @@
     text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
-  .callout-bubble__label svg{ width: 14px; height: 14px; }
+  .callout-bubble__label svg{ width: 20px; height: 20px; }
   .callout-bubble p{
     margin: 0;
     font-size: 0.82rem;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.4;
   }
   .callout-bubble--dark{
@@ -1902,10 +1897,10 @@
         <a href="#about">About Me</a>
         -->
         <a href="https://www.linkedin.com/in/ying-ju-chen-8064aa/" class="icon-btn" aria-label="LinkedIn profile">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+          <svg viewBox="0 0 24 24" fill="white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
         </a>
       </nav>
-
+      
       <button
         type="button"
         class="hamburger-btn"
@@ -1921,8 +1916,10 @@
     </div>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile primary">
+      <!-- Temporary disable
       <a href="#case-studies" class="active">Case Studies</a>
       <a href="#about">About Me</a>
+      -->
       <a href="https://www.linkedin.com/in/ying-ju-chen-8064aa/" class="mobile-nav__linkedin" aria-label="LinkedIn profile">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
         LinkedIn
@@ -1938,7 +1935,7 @@
         <div class="hero__content">
           <p class="eyebrow"><span class="bar" aria-hidden="true"></span><span>Aegon · 2024</span></p>
           <h1>Empowering Stress-Free Retirement Decisions</h1>
-          <p class="lede">How we redesigned Aegon's pension payout calculator to help elderly users make confident financial choices without panic.</p>
+          <p class="lede">How to redesign Aegon's pension payout calculator to help elderly users make confident financial choices without panic</p>
           <div class="tool-badge" aria-label="Designed in Figma">
             <svg viewBox="0 0 24 24" width="40" height="40">
               <rect width="24" height="24" rx="5" fill="#0d0d0d"/>
@@ -2102,13 +2099,17 @@
               <h4>Want certainty &amp; Contextual guidance</h4>
               <div class="guidance-item">
                 <div class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 12 14l-4.5 2 2-4.5L14 9z" fill="currentColor" stroke="none"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                  </svg>
                 </div>
-                <p>Most prefer fixed because of certainty and easier long-term planning.</p>
+                <p>Most prefer fixed pension because of certainty and easier long-term planning.</p>
               </div>
               <div class="guidance-item">
                 <div class="icon-box" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v.005h-.006v-.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z" />
+                  </svg>
                 </div>
                 <p>Most want pension fund to reflect their future plans to reduce their anxiety.</p>
               </div>
@@ -2136,15 +2137,21 @@
             <div class="insight-card__body">
               <ul class="insight-list">
                 <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15Z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+                  </svg>
                   Dyslexia (N=2)
                 </li>
                 <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 20V13M10 20V8M15 20V4M20 20v-9"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                  </svg>
                   Low Literacy (N=2)
                 </li>
                 <li>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
+                  </svg>
                   Low Digital Skills (N=2)
                 </li>
               </ul>
@@ -2158,7 +2165,7 @@
             <h3 class="insight-card__header">Core Research Questions</h3>
             <div class="insight-card__body">
               <ol class="insight-questions">
-                <li>Can they describe what they learn?</li>
+                <li>Can they explain what they learn?</li>
                 <li>Is the explanation correct?</li>
                 <li>How confident are they?</li>
               </ol>
@@ -2182,7 +2189,9 @@
           <ul class="takeaway-list">
             <li>
               <div class="takeaway-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 6h6v6"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                </svg>
               </div>
               <div class="takeaway-content">
                 <h4>People value consistent reassurance</h4>
@@ -2193,7 +2202,9 @@
             </li>
             <li>
               <div class="takeaway-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z"/><path d="M9.5 12.5l1.8 1.8 3.2-3.6"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
               </div>
               <div class="takeaway-content">
                 <h4>Choose what they understand over what suits them best</h4>
@@ -2205,7 +2216,9 @@
             </li>
             <li>
               <div class="takeaway-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
               </div>
               <div class="takeaway-content">
                 <h4>The focus shifts from saving to responsible spending and long-term stability</h4>
@@ -2261,7 +2274,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>"Quick" estimation</td>
+                <td>Quick estimation</td>
                 <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
                 <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
                 <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
@@ -2388,12 +2401,12 @@
           <div class="important-details__text">
             <div class="important-details__block">
               <h3>Translate complex models into confident decisions</h3>
-              <p>To help users make major life decisions, I led the effort to turn complex financial data into clear, actionable insights. In designing our income calculator, we shifted the focus from backend calculations to actual user comprehension. Our research revealed that users wanted to see how gross and net numbers directly impacted their future, requiring us to integrate real-life factors like partner income and dynamic spending. This initiative ultimately aligned our engineering and product teams around solving meaningful user challenges.</p>
+              <p>To help users make major life decisions, I led to turn complex financial data into clear, actionable insights. In designing our income calculator, we shifted our focus from backend calculations to ensuring users could easily understand and interpret the results. Our research revealed that users wanted to see how gross and net numbers directly impacted their future, requiring us to integrate real-life factors like partner income and dynamic spending. This initiative ultimately aligned our engineering and product teams around solving meaningful user challenges.</p>
             </div>
 
             <div class="important-details__block">
-              <h3>Scale Empathy</h3>
-              <p>When I joined, our analytics tools captured what users were doing, but lacked the qualitative context of why. To bridge this gap, I established a qualitative research framework that translated user motivations into actionable product strategy, uncovering key friction points hidden behind the quantitative data. To turn these insights into immediate product action, I spearheaded a dedicated task force comprising PM, Designer, Engineer, and Marketing. This initiative not only aligned user pain points directly with our strategic roadmap prioritization but also established a collaborative, scalable foundation for a research-driven design practice in the team.</p>
+              <h3>"Scale" empathy</h3>
+              <p>When I joined, our analytics tools captured what users were doing, but lacked the qualitative context of why. To bridge this gap, I established a qualitative research framework that translated user motivations into actionable product strategy, uncovering key friction points hidden behind the quantitative data. To turn these insights into immediate action, I spearheaded a dedicated task force comprising PM, Designer, Engineer, and Marketing. This initiative not only aligned user pain points directly with our strategic roadmap prioritization but also established a collaborative, scalable foundation for a research-driven design practice in the team.</p>
             </div>
           </div>
 
@@ -2444,7 +2457,9 @@
             <div class="solution-highlights">
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><path d="M3 3l18 18"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Minimal disruption</h4>
@@ -2453,7 +2468,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Grasp key info instantly</h4>
@@ -2467,7 +2484,9 @@
               <img src="images/OnTime.svg" alt="Just-on-time information">
             <div class="callout-bubble callout-bubble--dark" style="left: 2.2rem; bottom: 2rem;">
               <p class="callout-bubble__label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M2 21c0-4 3-7 7-7"/><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M14 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+                </svg>
                 User Intent
               </p>
               <p>"Will I have enough income in the future?"</p>
@@ -2475,7 +2494,9 @@
 
             <div class="callout-bubble" style="right: 1rem; bottom: 8rem;">
               <p class="callout-bubble__label">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2.05V17h6v-.25c0-.85.4-1.55 1-2.05A7 7 0 0 0 12 2Z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+                </svg>
                 Primary Button
               </p>
               <p>Check whether my choice fits my situation</p>
@@ -2493,7 +2514,9 @@
             <div class="solution-highlights">
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Structure questions logically</h4>
@@ -2502,7 +2525,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 7h16M4 12h10M4 17h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Keep questions short to the point</h4>
@@ -2511,7 +2536,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Calculate on the site to avoid shifting</h4>
@@ -2536,7 +2563,9 @@
             <div class="solution-highlights">
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0 1 12 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Result in a calculator form</h4>
@@ -2545,7 +2574,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 7h16M4 12h10M4 17h6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                  </svg>
                 </div>
                 <div>
                   <h4>One place for both data and graph view</h4>
@@ -2554,7 +2585,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Display side by side to compare</h4>
@@ -2563,7 +2596,9 @@
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                  </svg>
                 </div>
                 <div>
                   <h4>Remind the future risk</h4>
