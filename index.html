@@ -210,18 +210,22 @@
   }
 
   .hero p.lede{
-    font-size: 1.05rem;
-    line-height: 1.6;
+    font-size: 1.15rem;
+    line-height: 1.65;
     color: var(--body-text);
     max-width: none;
     margin: 0 0 2.2rem;
   }
 
   .tool-badge{
-    width: 40px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tool-badge img{
     height: 40px;
     border-radius: 9px;
-    overflow: hidden;
   }
 
   /* ---------- Product mock card (right side of hero) ---------- */
@@ -260,219 +264,13 @@
   }
   .dots span.on{ background: var(--navy); }
 
-  .device-card__image{
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .device-card__placeholder{
-    width: 100%;
-    aspect-ratio: 994 / 932;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-  .device-card__placeholder .media-placeholder{
-    border-radius: 8px;
-  }
-
-  .payout-head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.1rem;
-  }
-  .payout-head__title{
-    font-weight: 700;
-    font-size: 0.85rem;
-    color: var(--navy);
-  }
-  .payout-head__link{
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--blue-accent);
-  }
-  .payout-head__link svg{ width: 12px; height: 12px; }
-
-  .payout-columns{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.9rem;
-    margin-bottom: 1.6rem;
-  }
-
-  .payout-col{
-    border: 1px solid var(--border-soft);
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--bg-card);
-  }
-
-  .payout-col__title{
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--navy);
-    text-align: center;
-    padding: 0.85rem 0 0.7rem;
-    border-bottom: 1px solid var(--navy);
-    margin: 0 0.85rem;
-  }
-
-  .payout-col__body{
-    padding: 0.7rem 0.85rem 0;
-  }
-
-  .payout-col .row{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.74rem;
-    color: var(--navy-soft);
-    padding: 0.3rem 0;
-  }
-  .payout-col .row.legend{
-    font-weight: 700;
-    color: var(--navy);
-  }
 
   .divider-dotted{
     border-top: 1.5px dotted #c7ccd6;
     margin: 0.5rem 0 0.35rem;
   }
 
-  .swatch{
-    width: 9px; height: 9px; border-radius: 2px;
-    display: inline-block; margin-right: 7px;
-  }
-  .swatch.blue{ background: var(--blue-accent); }
-  .swatch.yellow{ background: var(--yellow-accent); }
-
-  .payout-col__footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #eeece3;
-    padding: 0.8rem 0.85rem;
-    margin-top: 0.7rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-  }
-  .payout-col__footer .amount{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
-  }
-  .payout-col__footer .amount-line{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .payout-col__footer small{
-    display: block;
-    font-weight: 500;
-    color: var(--muted);
-    font-size: 0.62rem;
-  }
-  .payout-col--warn .payout-col__footer .amount-line{ color: var(--red); }
-  .warn-icon{ width: 13px; height: 13px; flex-shrink: 0; }
-
-  .chart-y-axis{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 0.62rem;
-    color: var(--navy-soft);
-    font-weight: 600;
-    text-align: right;
-    height: 190px;
-    padding-bottom: 1.6rem;
-  }
-
-  .bar-chart-wrap{
-    display: flex;
-    gap: 0.7rem;
-    margin: 0.5rem 0 0.6rem;
-  }
-
-  .chart-area{
-    flex: 1;
-    position: relative;
-    height: 190px;
-  }
-
-  .chart-gridlines{
-    position: absolute;
-    inset: 0 0 1.6rem 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .chart-gridlines span{
-    border-top: 1.5px dotted #c7ccd6;
-    display: block;
-  }
-  .chart-gridlines span:last-child{
-    border-top: 1.5px solid #9aa2af;
-  }
-
-  .bar-groups{
-    position: absolute;
-    inset: 0 0 1.6rem 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-  }
-
-  .bar-group{
-    display: flex;
-    align-items: flex-end;
-    gap: 8px;
-    height: 100%;
-  }
-  .bar-group .bar{
-    width: 26px;
-    border-radius: 2px 2px 0 0;
-  }
-  .bar-group .bar.blue{ background: var(--blue-accent); }
-  .bar-group .bar.yellow{ background: var(--yellow-accent); }
-
-  .chart-x-labels{
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    display: flex;
-    justify-content: space-around;
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  .chart-x-labels .x-label{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    transform: translateY(1.35rem);
-  }
-  .chart-x-labels .warn-icon{ width: 14px; height: 14px; }
-
-  .callout{
-    display: flex;
-    gap: 0.5rem;
-    align-items: flex-start;
-    background: #fdf6e6;
-    border-radius: 8px;
-    padding: 0.65rem 0.8rem;
-    font-size: 0.68rem;
-    line-height: 1.4;
-    color: #7a5c17;
-  }
-
+  
   /* ---------- Scroll cue ---------- */
 
   .scroll-cue{
@@ -588,6 +386,41 @@
     margin: 0;
   }
 
+  .overview-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .overview-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 20px 45px -32px rgba(15, 30, 60, 0.3);
+  }
+
+  .overview-card h3{
+    font-size: 1.4rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1rem;
+  }
+
+  .overview-card p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    max-width: none;
+    margin: 0;
+  }
+
+  .overview-card p strong{
+    color: var(--navy-soft);
+    font-weight: 700;
+  }
+
   /* ---------- Impact (results & impact summary) ---------- */
 
   .impact{
@@ -600,7 +433,7 @@
   }
 
   .impact__content{
-    max-width: 640px;
+    max-width: none;
   }
 
   .impact .section-label span{
@@ -613,7 +446,7 @@
     font-weight: 700;
     letter-spacing: -0.01em;
     color: #fff;
-    max-width: 46ch;
+    max-width: none;
     margin: 0 0 1.5rem;
   }
 
@@ -621,8 +454,28 @@
     font-size: 1rem;
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.8);
-    max-width: 60ch;
-    margin: 0 0 2.75rem;
+    max-width: none;
+    margin: 0 0 1.4rem;
+  }
+
+  .impact__highlight{
+    color: var(--yellow-accent);
+    font-weight: 700;
+  }
+
+  .impact__top{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 4.5rem;
+    align-items: start;
+  }
+
+  .impact__graphic{
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    align-self: start;
+    margin-top: 2.4rem;
   }
 
   .impact-stats{
@@ -770,7 +623,7 @@
 
 
   .process-step.is-active .process-step__card{
-    border-color: var(--gold);
+    border: 2px solid var(--gold);
     box-shadow: 0 18px 30px -18px rgba(8, 36, 79, 0.35);
     transform: translateY(-3px);
   }
@@ -778,19 +631,60 @@
   /* ---------- Drop-off indicator (fixed under step 3 only) ---------- */
 
   .process-step__dropoff{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    margin-top: 1.1rem;
-    color: var(--gold);
+    margin: 1.1rem auto 0;
+    background: var(--gold);
+    color: #fff;
     font-weight: 700;
     font-size: 0.85rem;
     line-height: 1.15;
     text-align: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
   }
 
-  .process-step__dropoff svg{ width: 16px; height: 20px; flex-shrink: 0; }
+  .process-step__dropoff svg{ width: 14px; height: 18px; flex-shrink: 0; }
+
+  /* ---------- Designer goals list ---------- */
+
+  .goals{
+    margin-top: 4.5rem;
+    padding-left: 2rem;
+    border-left: 4px solid var(--yellow-accent);
+  }
+
+  .goals h3{
+    font-size: 1.35rem;
+    line-height: 1.3;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.5rem;
+  }
+
+  .goals__list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .goals__list li{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--body-text);
+  }
+
+
+  .goals__list li strong{
+    color: var(--navy);
+    font-weight: 700;
+  }
 
   /* ---------- Results (conversion uplift per step) ---------- */
 
@@ -986,6 +880,49 @@
     align-items: center;
   }
 
+  /* ---------- Problem (three key challenges) ---------- */
+
+  .problem-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .problem-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 40px -32px rgba(15, 30, 60, 0.25);
+  }
+
+  .problem-card__icon{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--border-soft);
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+  }
+
+  .problem-card__icon svg{ width: 22px; height: 22px; color: var(--navy); }
+
+  .problem-card h3{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.6rem;
+  }
+
+  .problem-card p{
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--body-text);
+    margin: 0;
+  }
+
   .research-figure{
     background: var(--bg-card);
     border: 1px solid var(--border);
@@ -1109,7 +1046,13 @@
   }
 
   .insight-card__media img{
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
 
@@ -1118,6 +1061,8 @@
     color: #fff;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -1184,9 +1129,18 @@
   .insight-card__body p{
     font-size: 1rem;
     line-height: 1.6;
+    color: var(--navy-soft);
+    margin: 0 0 1rem;
+    font-weight: 400;
+  }
+
+  .insight-card__body p strong{
     color: var(--navy);
-    margin: 0;
-    font-weight: 600;
+    font-weight: 700;
+  }
+
+  .insight-card__body p:last-child{
+    margin-bottom: 0;
   }
 
   /* ---------- Media placeholder (shared fake-image block) ---------- */
@@ -1216,13 +1170,13 @@
   }
 
   .takeaway-card__header{
-    background: #ffc857;
+    background: #f5b942;
     color: var(--navy);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 1rem 24px;
+    padding: 1.2rem 28px;
     margin: 0;
     line-height: 1.3;
   }
@@ -1235,13 +1189,13 @@
 
   .takeaway-list > li{
     display: flex;
-    gap: 1.2rem;
+    gap: 1.4rem;
     align-items: flex-start;
-    padding: 18px 24px;
+    padding: 26px 28px;
     border-top: 1px solid var(--border-soft);
   }
   .takeaway-list > li:first-child{ border-top: none; }
-  .takeaway-list > li:last-child{ padding-bottom: 24px; }
+  .takeaway-list > li:last-child{ padding-bottom: 30px; }
 
   .takeaway-content{
     flex: 1 1 auto;
@@ -1263,8 +1217,9 @@
   .takeaway-content h4{
     font-size: 1rem;
     font-weight: 700;
+    line-height: 1.45;
     color: var(--navy);
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.65rem;
   }
   .takeaway-content ul{
     margin: 0;
@@ -1272,36 +1227,144 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.55rem;
     width: 100%;
   }
   .takeaway-content li{
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    gap: 0.4rem;
-    width: 100%;
-    padding: 0;
+    position: relative;
+    display: block;
+    padding: 0 0 0 16px;
     border: none;
     font-size: 0.88rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.65;
     color: #44474e;
   }
   .takeaway-content li::before{
     content: "";
+    position: absolute;
+    left: 0;
+    top: 0.62em;
     width: 5px;
     height: 5px;
-    margin-top: 0.57em;
     border-radius: 50%;
     background: currentColor;
-    flex-shrink: 0;
   }
 
   /* ---------- Competitor analysis / benchmark table ---------- */
 
   .benchmark{
     padding-bottom: 6rem;
+  }
+
+  /* ---------- Key usability breakdown (audit) ---------- */
+
+  .audit{
+    padding-bottom: 6rem;
+  }
+
+  .audit-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .audit-content h2{
+    font-size: 1.9rem;
+    line-height: 1.28;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin: 0 0 1.25rem;
+  }
+
+  .audit-content > p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    margin: 0 0 2.25rem;
+    max-width: 60ch;
+  }
+
+  .audit-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .audit-card{
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 20px 40px -32px rgba(15, 30, 60, 0.25);
+  }
+
+  .audit-card__icon{
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--border-soft);
+    border-radius: 10px;
+  }
+
+  .audit-card__icon svg{ width: 22px; height: 22px; color: var(--navy); }
+
+  .audit-card h3{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 0.4rem;
+  }
+
+  .audit-card p{
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--body-text);
+    margin: 0;
+  }
+
+  .audit-media{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2.4rem;
+  }
+
+  .audit-media__panel{
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    box-shadow: 0 20px 40px -32px rgba(15, 30, 60, 0.25);
+    aspect-ratio: 16 / 9;
+  }
+
+  .audit-media__panel--tall{
+    aspect-ratio: 3 / 2;
+  }
+
+  .audit-media__panel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .audit-media__panel .media-placeholder{
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .audit-media__panel--tall .media-placeholder{
+    aspect-ratio: 3 / 2;
   }
 
   .benchmark-table-wrap{
@@ -1502,17 +1565,18 @@
   .pillar__points{
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.65rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 18px 34px -28px rgba(15, 30, 60, 0.25);
   }
 
   .pillar__point{
     display: flex;
     gap: 0.65rem;
     align-items: flex-start;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 1.1rem;
     font-size: 0.88rem;
     line-height: 1.5;
     color: var(--navy-soft);
@@ -1527,13 +1591,6 @@
     flex-shrink: 0;
   }
 
-  .important-details{
-    display: grid;
-    grid-template-columns: 1fr 1.05fr;
-    gap: 4.5rem;
-    align-items: start;
-  }
-
   .important-details__heading{
     font-size: 1.6rem;
     line-height: 1.3;
@@ -1542,34 +1599,60 @@
     color: var(--navy);
     width: 100%;
     max-width: none;
-    margin: 0 0 2.5rem;
+    margin: 0 0 1.25rem;
   }
 
-  .important-details__block{
-    margin-bottom: 1.8rem;
-  }
-  .important-details__block:last-child{
-    margin-bottom: 0;
-  }
-
-  .important-details__block h3{
-    font-size: 1.2rem;
-    line-height: 1.35;
-    font-weight: 700;
-    color: var(--navy);
-    margin: 0 0 0.7rem;
-  }
-
-  .important-details__block p{
+  .important-details__intro{
     font-size: 1rem;
     line-height: 1.65;
     color: var(--body-text);
-    margin: 0;
+    max-width: 70ch;
+    margin: 0 0 2.5rem;
+  }
+
+  .important-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+
+  .roadblock-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.25rem;
+    box-shadow: 0 20px 45px -32px rgba(15, 30, 60, 0.3);
+  }
+
+  .roadblock-card h3{
+    font-size: 1.3rem;
+    line-height: 1.32;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1rem;
+  }
+
+  .roadblock-card p{
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--body-text);
+    margin: 0 0 1rem;
+  }
+
+  .roadblock-card p:last-child{
+    margin-bottom: 0;
+  }
+
+  .roadblock-card p strong{
+    color: var(--navy);
+    font-weight: 700;
   }
 
   .detail-grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.3rem;
   }
 
@@ -1683,12 +1766,12 @@
     height: 42px;
     flex-shrink: 0;
     border-radius: 10px;
-    background: var(--navy);
+    background: var(--border-soft);
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .solution-highlight__icon svg{ width: 20px; height: 20px; color: white; }
+  .solution-highlight__icon svg{ width: 20px; height: 20px; color: var(--navy); }
 
   .solution-highlight h4{
     font-size: 0.98rem;
@@ -1753,6 +1836,123 @@
     height: 4rem;
   }
 
+  /* ---------- Final outcome ---------- */
+
+  .outcome{
+    padding: 6rem 0;
+  }
+
+  .outcome-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .outcome-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 45px -32px rgba(15, 30, 60, 0.3);
+  }
+
+  .outcome-card h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.1rem;
+  }
+
+  .outcome-card p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    margin: 0 0 1.5rem;
+  }
+
+  .outcome-card p:last-child{ margin-bottom: 0; }
+
+  .outcome-stats{
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .outcome-stat__value{
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+
+  .outcome-stat__label{
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ---------- Final outcome ---------- */
+
+  .outcome{
+    padding: 6rem 0;
+  }
+
+  .outcome-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  .outcome-card{
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 45px -32px rgba(15, 30, 60, 0.3);
+  }
+
+  .outcome-card h3{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 1.25rem;
+  }
+
+  .outcome-card p{
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--body-text);
+    margin: 0 0 1.75rem;
+  }
+
+  .outcome-card p:last-child{
+    margin-bottom: 0;
+  }
+
+  .outcome-stats{
+    display: flex;
+    gap: 2.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .outcome-stat__value{
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin: 0 0 0.6rem;
+  }
+
+  .outcome-stat__label{
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0;
+  }
+
   /* ---------- Responsive ---------- */
 
   @media (max-width: 960px){
@@ -1763,6 +1963,8 @@
     .context h2{ font-size: 1.7rem; }
     .impact{ padding: 4rem 0; }
     .impact h2{ font-size: 1.7rem; }
+    .impact__top{ grid-template-columns: 1fr; gap: 2rem; }
+    .impact__graphic{ margin-top: 0; }
     .process-flow{
       display: flex;
       overflow-x: auto;
@@ -1788,9 +1990,22 @@
     .main-nav{ gap: 1.2rem; }
     .main-nav a{ font-size: 0.78rem; }
     .primary-grid{ grid-template-columns: 1fr; gap: 2rem; }
+    .overview-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
+    .goals{ margin-top: 3rem; }
+    .problem-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
+    .insight-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
+    .audit-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
+    .audit-media{ margin-top: 0; }
     .solution-row{ grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3.5rem; }
+    .outcome{ padding: 4rem 0; }
+    .outcome-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
     .pillar-grid{ grid-template-columns: 1fr; gap: 2.5rem; }
     .important-details{ grid-template-columns: 1fr; gap: 2.5rem; }
+    .detail-grid{ grid-template-columns: 1fr; gap: 1.25rem; }
+    .outcome{ padding: 4rem 0; }
+    .outcome-grid{ grid-template-columns: 1fr; gap: 1.5rem; }
+    .outcome-card{ padding: 2rem; }
+    .outcome-stats{ gap: 2rem; }
     .takeaway-list > li{ flex-direction: column; gap: 0.9rem; }
   }
 
@@ -1817,11 +2032,16 @@
     .scroll-cue{ padding: 3rem 0; }
 
     .context h2{ font-size: 1.5rem; }
+    .overview-card{ padding: 1.5rem 1.25rem; }
+    .overview-card h3{ font-size: 1.2rem; }
+    .goals{ padding-left: 1.25rem; margin-top: 2.5rem; }
+    .goals h3{ font-size: 1.15rem; }
 
     .impact{ padding: 3rem 0; }
     .impact h2{ font-size: 1.5rem; }
     .impact-stats{ gap: 1.75rem; }
     .impact-stat__value{ font-size: 2.1rem; }
+    .impact__graphic{ padding: 1rem;  }
 
     .research{ padding-bottom: 4rem; }
     .research__intro h2{ font-size: 1.5rem; }
@@ -1832,12 +2052,12 @@
     .guidance-item{ padding: 0.85rem 0.95rem; }
 
     .insight-grid{ grid-template-columns: 1fr; gap: 1.1rem; }
-    .takeaway-list > li{ padding: 14px 16px; }
-    .takeaway-list > li:last-child{ padding-bottom: 18px; }
+    .takeaway-list > li{ padding: 20px 18px; gap: 1rem; }
+    .takeaway-list > li:last-child{ padding-bottom: 24px; }
     .insight-card__body{ padding: 16px 16px 26px; }
     .insight-card__header{ padding: 1rem 16px; }
-    .takeaway-card__header{ padding: 1rem 16px; }
-    .takeaway-content h4{ font-size: 0.98rem; }
+    .takeaway-card__header{ padding: 1rem 18px; }
+    .takeaway-content h4{ font-size: 0.98rem; margin-bottom: 0.5rem; }
 
     .process-step__card{ padding: 0.75rem; }
 
@@ -1858,8 +2078,11 @@
     .pillar__number{ font-size: 2.1rem; }
     .important-details__heading{ font-size: 1.15rem; }
     .important-details__block h3{ font-size: 1.05rem; }
-    .detail-grid{ grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .detail-grid{ grid-template-columns: 1fr; gap: 0.9rem; }
     .detail-card__caption{ font-size: 0.72rem; padding: 0.5rem 0.6rem; height: 68px; }
+    .outcome-card h3{ font-size: 1.3rem; }
+    .outcome-stat__value{ font-size: 2rem; }
+    .outcome-stats{ gap: 1.75rem; }
 
     /* Buttons/CTAs go full width on mobile */
     .scroll-cue,
@@ -1916,19 +2139,11 @@
 
         <div class="hero__content">
           <p class="eyebrow"><span class="bar" aria-hidden="true"></span><span>Aegon · 2024</span></p>
-          <h1>Empower Stress-Free Retirement Decisions</h1>
-          <p class="lede">How to redesign Aegon's pension payout calculator to help elderly users make confident financial choices without panic</p>
+          <h1>Turning pension decisions from stressful to confident</h1>
+          <p class="lede">Redesigning Aegon’s calculator for elderly users while balancing regulatory compliance, engineering feasibility, and elderly accessibility to drive a +18% decision completion rate.</p>
           <div class="tool-badge" aria-label="Designed in Figma">
-            <svg viewBox="0 0 24 24" width="40" height="40">
-              <rect width="24" height="24" rx="5" fill="#0d0d0d"/>
-              <g transform="translate(8.1, 6.2) scale(0.145)">
-                <path d="M13.3333 80.0002C20.6933 80.0002 26.6667 74.0268 26.6667 66.6668V53.3335H13.3333C5.97333 53.3335 0 59.3068 0 66.6668C0 74.0268 5.97333 80.0002 13.3333 80.0002Z" fill="#0ACF83"/>
-                <path d="M0 39.9998C0 32.6398 5.97333 26.6665 13.3333 26.6665H26.6667V53.3332H13.3333C5.97333 53.3332 0 47.3598 0 39.9998Z" fill="#A259FF"/>
-                <path d="M0 13.3333C0 5.97333 5.97333 0 13.3333 0H26.6667V26.6667H13.3333C5.97333 26.6667 0 20.6933 0 13.3333Z" fill="#F24E1E"/>
-                <path d="M26.6667 0H40.0001C47.3601 0 53.3334 5.97333 53.3334 13.3333C53.3334 20.6933 47.3601 26.6667 40.0001 26.6667H26.6667V0Z" fill="#FF7262"/>
-                <path d="M53.3334 39.9998C53.3334 47.3598 47.3601 53.3332 40.0001 53.3332C32.6401 53.3332 26.6667 47.3598 26.6667 39.9998C26.6667 32.6398 32.6401 26.6665 40.0001 26.6665C47.3601 26.6665 53.3334 32.6398 53.3334 39.9998Z" fill="#1ABCFE"/>
-              </g>
-            </svg>
+            <img src="images/figma.svg" alt="figma logo">
+            <img src="images/UserTesting.png" alt="user testing logo">
           </div>
         </div>
 
@@ -1949,31 +2164,16 @@
     <section class="impact" id="impact">
       <div class="wrap">
 
-        <div class="impact__content">
-          <p class="section-label"><span>Impact</span></p>
-          <h2>Design for confidence —<br>Balance user needs and business goals</h2>
-          <p class="impact__intro">The project transformed a fast but confusing quotation journey into an experience that supported better decision-making while meeting Aegon&rsquo;s goal of increasing meaningful quotation downloads. Research showed that while customers could generate a quotation quickly, many reached the end without fully understanding their pension choices. The focus shifted from simply helping people move faster to helping them make informed decisions with confidence.</p>
-
-          <div class="impact-stats">
-            <div class="impact-stat">
-              <div class="impact-stat__top">
-                <span class="impact-stat__value">+ 18%</span>
-                <span class="impact-stat__tag">Direct impact</span>
-              </div>
-              <p class="impact-stat__label">More users completing pension choices</p>
-            </div>
-            <div class="impact-stat">
-              <div class="impact-stat__top">
-                <span class="impact-stat__value">+ 8%</span>
-                <span class="impact-stat__tag">Indirect impact</span>
-              </div>
-              <p class="impact-stat__label">Higher offer download rate</p>
-            </div>
+        <div class="impact__top">
+          <div class="impact__content">
+            <p class="section-label"><span>Executive Summary</span></p>
+            <h2>Design for confidence —<br>Balancing users, business, and regulations</h2>
+            <p class="impact__intro">Retirement is one of the most significant life transitions a person experiences. Yet, for many Aegon customers in the Netherlands aged 60 to 65, understanding their pension options was a source of confusion, uncertainty, and cognitive overload.</p>
+            <p class="impact__intro">As the lead designer on this initiative, I drove the end-to-end redesign from research through final delivery. My goal was to transform a high-friction, transactional pension calculator into a high-trust, guided decision experience. By balancing complex Dutch financial regulations (AFM guidelines), backend API dependencies, and strict WCAG 2.1 AA accessibility requirements, we redesigned the experience around customer understanding and confidence rather than simply generating quick quotes. The redesign resulted in an <strong class="impact__highlight">18% increase in decision completion</strong> and an <strong class="impact__highlight">8% increase in offer downloads</strong>.</p>
           </div>
 
-          <h3>Lead a user-centered transformation in the team</h3>
-          <div class="impact__body">
-            <p>I led the end-to-end design process, from research and strategy to testing and delivery. Working with cross-functional teams, I aligned business goals with user needs through evidence-led design and continuous validation. The result was not only a clearer and more accessible pension experience, but also a stronger UX culture where design and business decisions were grounded in evidence, stakeholders shared a common understanding of user problems, and customer confidence became a key measure of success alongside business outcomes.</p>
+          <div class="impact__graphic" aria-label="Venn diagram showing UX at the intersection of user needs, business goals, and technical constraints">
+            <img src="images/WayOfWorking.png" alt="Way of working in this project">
           </div>
         </div>
 
@@ -1982,8 +2182,17 @@
 
     <section class="context" id="context">
       <div class="wrap">
-        <p class="section-label"><span>Challenge</span></p>
-        <h2>Retirement should be joyful, not challenging. People request pension quotes without fully understanding the options they've selected, creating uncertainty at a crucial life stage.</h2>
+        <p class="section-label"><span>Overview</span></p>
+        <div class="overview-grid">
+          <div class="overview-card">
+            <h3>Context</h3>
+            <p>Aegon is a leading Dutch financial services and pension provider. As customers near retirement, they must choose how to structure their pension payout, balancing options such as fixed lifetime payments, high-low payouts (receiving higher payouts in early retirement years), and partner pensions.</p>
+          </div>
+          <div class="overview-card">
+            <h3>Business Challenge</h3>
+            <p>While the current calculator generated quick quotes, analytics showed a 69% drop-off at Step 3 (Payout Method Configuration). Many users struggled with gross/net payouts, <strong>driving support calls, lost qualified offer downloads</strong>, and <strong>rising operational costs</strong>.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2048,54 +2257,56 @@
 
         </div>
 
+        <div class="goals">
+          <h3>As a designer, my goal is to:</h3>
+          <ul class="goals__list">
+            <li><strong>—  Relieve financial anxiety and cognitive strain</strong> for elderly users (ages 60&ndash;65+)</li>
+            <li><strong>—  Comply with WCAG 2.1 standard</strong> accommodating low digital literacy and visual impairment</li>
+            <li><strong>—  Satisfy AFM compliance regulations</strong> without overwhelming users with legal jargon</li>
+            <li><strong>—  Drive an increase in decision completion</strong> without increasing customer support calls</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
     <section class="research" id="primary-research">
       <div class="wrap">
-        <p class="section-label"><span>Primary Research</span></p>
+        <p class="section-label"><span>Problem</span></p>
         <div class="research__intro">
-          <h2>How well do people understand and engage with pensions?</h2>
+          <h2>Retirement marks the start of a new chapter. However, our journey left users feeling overwhelmed by financial complexity and uncertain decisions.</h2>
+          <p>Through conversations with stakeholders and reviews of customer support feedback, we identified three key challenges:</p>
         </div>
 
-        <div class="primary-grid">
-          <figure class="research-figure">
-                 <img src="images/AFM.svg" alt="AFM">
-            <p class="research-figure__source">Source: Autoriteit Financiële Markten (AFM)</p>
-          </figure>
-
-          <div class="primary-stats">
-            <div class="stat-group">
-              <h4>Low engagement &amp; Comprehension</h4>
-              <div class="stat-row">
-                <span class="stat-number">60%</span>
-                <p class="stat-text">of people don't regularly check and understand their pension situation.</p>
-              </div>
-              <div class="stat-row">
-                <span class="stat-number">19%</span>
-                <p class="stat-text">of people choose the high-low option, despite every insurer offering this option.</p>
-              </div>
+        <div class="problem-grid">
+          <div class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+              </svg>
             </div>
+            <h3>Emotional barriers</h3>
+            <p>Users feared making irreversible decisions that could impact their financial future.</p>
+          </div>
 
-            <div class="stat-group">
-              <h4>Want certainty &amp; Contextual guidance</h4>
-              <div class="guidance-item">
-                <div class="icon-box" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
-                  </svg>
-                </div>
-                <p>Most prefer fixed pension because of certainty and easier long-term planning.</p>
-              </div>
-              <div class="guidance-item">
-                <div class="icon-box" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                   <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 2.994v2.25m10.5-2.25v2.25m-14.252 13.5V7.491a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v11.251m-18 0a2.25 2.25 0 0 0 2.25 2.25h13.5a2.25 2.25 0 0 0 2.25-2.25m-18 0v-7.5a2.25 2.25 0 0 1 2.25-2.25h13.5a2.25 2.25 0 0 1 2.25 2.25v7.5m-6.75-6h2.25m-9 2.25h4.5m.002-2.25h.005v.006H12v-.006Zm-.001 4.5h.006v.006h-.006v-.005Zm-2.25.001h.005v.006H9.75v-.006Zm-2.25 0h.005v.005h-.006v-.005Zm6.75-2.247h.005v.005h-.005v-.005Zm0 2.247h.006v.006h-.006v-.006Zm2.25-2.248h.006V15H16.5v-.005Z" />
-                  </svg>
-                </div>
-                <p>Most want pension fund to reflect their future plans to reduce their anxiety.</p>
-              </div>
+          <div class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 0 1-1.125-1.125v-3.75ZM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-8.25ZM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 0 1-1.125-1.125v-2.25Z" />
+              </svg>
             </div>
+            <h3>Cognitive fatigue</h3>
+            <p>Showing too many financial options at once overwhelmed users.</p>
+          </div>
+
+          <div class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+            </div>
+            <h3>Accessibility disconnect</h3>
+            <p>Complex financial language and difficult interactions made the journey harder to understand and navigate.</p>
           </div>
         </div>
       </div>
@@ -2103,72 +2314,95 @@
 
     <section class="research" id="secondary-research">
       <div class="wrap">
-        <p class="section-label"><span>Secondary Research</span></p>
+        <p class="section-label"><span>Research &amp; Discovery</span></p>
         <div class="research__intro">
-          <h2>Test comprehension</h2>
-          <p>Conducted 11 in-depth interviews (ages 60-65), with 6 dedicated to accessibility users. I also mapped other subjective assessments: comprehension, trust and usability.</p>
+          <h2>To ensure our decisions were evidence-based, I combined quantitative data analysis with qualitative user research.</h2>
         </div>
 
         <div class="insight-grid">
 
           <article class="insight-card">
             <div class="insight-card__media">
-                 <img src="images/UserSegment.svg" alt="User Segment">
+              <img src="images/ResearchQuestions.svg" alt="Teams in interview">
             </div>
-            <h3 class="insight-card__header">User Segment</h3>
+            <h3 class="insight-card__header">Continuous Interview</h3>
             <div class="insight-card__body">
-              <ul class="insight-list">
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
-                  </svg>
-                  Dyslexia (N=2)
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                  </svg>
-                  Low Literacy (N=2)
-                </li>
-                <li>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25" />
-                  </svg>
-                  Low Digital Skills (N=2)
-                </li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="insight-card">
-            <div class="insight-card__media">
-              <img src="images/ResearchQuestions.svg" alt="Research Questions">
-            </div>
-            <h3 class="insight-card__header">Core Research Questions</h3>
-            <div class="insight-card__body">
+              <p>Interviewed <strong>11 users aged 60-65</strong>, including <strong>6 with accessibility needs (Dyslexia, Low literacy, Low digital skill)</strong>.</p>
               <ol class="insight-questions">
-                <li>Can people describe, in their own words, what they just learned?</li>
-                <li>Is their explanation actually correct?</li>
-                <li>How confident do they feel?</li>
+                <li>Can they describe what they learn?</li>
+                <li>Is the explanation correct?</li>
+                <li>How confident are they?</li>
               </ol>
             </div>
           </article>
 
           <article class="insight-card">
             <div class="insight-card__media">
-              <img src="images/Map.svg" alt="Map Comprehension Levels">
+              <img src="images/AFM.svg" alt="AFM">
             </div>
-            <h3 class="insight-card__header">Map Comprehension Levels</h3>
+            <h3 class="insight-card__header">Assessment &amp; Mapping</h3>
             <div class="insight-card__body">
-              <p>I also examined other subjective assessments, specifically trust and usability.</p>
+              <p>I <strong>reviewed AFM (Dutch Authority for the Financial Markets)</strong> reports to understand market trends and consumer insights.</p>
+            </div>
+          </article>
+
+          <article class="insight-card">
+            <div class="insight-card__media">
+              <img src="images/table.svg" alt="Compare top players">
+            </div>
+            <h3 class="insight-card__header">Benchmark Top Players</h3>
+            <div class="insight-card__body">
+              <p>I mapped competitors to understand industry patterns, opportunities, and gaps. A key insight was the value of <strong>adding a personal touch.</strong></p>
             </div>
           </article>
 
         </div>
 
         <div class="takeaway-card">
-          <h3 class="takeaway-card__header">Discovery Takeaway</h3>
+          <h3 class="takeaway-card__header">Key Insights</h3>
           <ul class="takeaway-list">
+            <li>
+              <div class="takeaway-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607ZM10.5 7.5v6m3-3h-6" />
+                </svg>
+              </div>
+              <div class="takeaway-content">
+                <h4>60% of users don&rsquo;t regularly check or understand their pension details</h4>
+                <ul>
+                  <li>Even though every insurer offered High-Low payout options, only <strong>19%</strong> of people choose the high-low option</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="takeaway-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                </svg>
+              </div>
+              <div class="takeaway-content">
+                <h4>Prioritize certainty and predictability over maximizing their returns</h4>
+                <ul>
+                  <li>Avoid trying out different payout structures, due to the fear of doing something wrong</li>
+                  <li>Not fully understand the benefits and risks</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="takeaway-icon" aria-hidden="true">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                </svg>
+              </div>
+              <div class="takeaway-content">
+                <h4>The focus shifts from saving to responsible spending and long-term stability</h4>
+                <ul>
+                  <li>Consider essential needs, like housing, food, and healthcare while planning</li>
+                  <li>Care primarily about what actually reaches their bank account (the net amount) to cover their daily expenses</li>
+                </ul>
+              </div>
+            </li>
             <li>
               <div class="takeaway-icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -2176,36 +2410,9 @@
                 </svg>
               </div>
               <div class="takeaway-content">
-                <h4>People value consistent reassurance</h4>
+                <h4>Behavioral Backtracking</h4>
                 <ul>
-                  <li>Often go back and forth between pages to reinforce their understanding</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="takeaway-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-                </svg>
-              </div>
-              <div class="takeaway-content">
-                <h4>Choose what they understand over what suits them best</h4>
-                <ul>
-                  <li>Avoid trying out different scenarios, like high–low or partner pensions, due to the fear of doing something wrong</li>
-                  <li>Not fully understand the benefits and risks</li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="takeaway-icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-              </div>
-              <div class="takeaway-content">
-                <h4>The focus shifts from saving to responsible spending and long-term stability</h4>
-                <ul>
-                  <li>Consider essential needs, like housing, food, and healthcare while planning</li>
+                  <li>Constantly clicked backward to reassure themselves that an earlier selection had not accidentally altered their overall payout figure</li>
                 </ul>
               </div>
             </li>
@@ -2214,122 +2421,63 @@
       </div>
     </section>
 
-    <section class="research benchmark" id="competitor-analysis">
+    <section class="research audit" id="competitor-analysis">
       <div class="wrap">
-        <p class="section-label"><span>Competitor Analysis</span></p>
-        <div class="research__intro">
-          <h2>Benchmark top players</h2>
-          <p>I also mapped out competitors to help me and the team understand what the industry is providing to users, what are the design patterns, and where the opportunities and threats are. One key insight that emerged from this was the importance of a "personal touch."</p>
-        </div>
+        <div class="audit-grid">
+          <div class="audit-content">
+            <p class="section-label"><span>Key Usability Breakdown</span></p>
+            <h2>I conduct an audit to uncover deeper barriers, with a focus on Step 3</h2>
+            <p>Building on the insights uncovered in the previous phase, we mapped the existing experience and conducted an audit of the current process. This helped us identify critical touchpoints, understand where users faced uncertainty, and break down areas where trust and comprehension could be improved.</p>
 
-        <div class="benchmark-table-wrap">
-          <table class="benchmark-table">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">
-                  <span class="brand-mock">
-                      <img src="images/Aegon.svg" alt="Aegon">
-                  </span>
-                </th>
-                <th scope="col">
-                  <span class="brand-mock">
-                    <img src="images/NN.svg" alt="NN">
-                  </span>
-                </th>
-                <th scope="col">
-                  <span class="brand-mock">
-                    <img src="images/ASR.svg" alt="ASR">
-                  </span>
-                </th>
-                <th scope="col">
-                  <span class="brand-mock">
-                    <img src="images/Allianz.svg" alt="Allianz">
-                  </span>
-                </th>
-                <th scope="col">
-                  <span class="brand-mock">
-                    <img src="images/Zwizerleven.svg" alt="Zwizerleven">
-                  </span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Quick estimation</td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Scenario modeling</td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Retirement income planner</td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Built-in decision-support flow</td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Data visualization</td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-              </tr>
-              <tr>
-                <td>Personal touch</td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-                <td><span class="status-icon status-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
+            <div class="audit-cards">
+              <div class="audit-card">
+                <div class="audit-card__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                  </svg>
+                </div>
+                <div>
+                  <h3>Low discoverability of interactive elements</h3>
+                  <p>Hidden hover interactions and separated views made it difficult for users to connect their choices with real-time outcomes.</p>
+                </div>
+              </div>
 
-    <section class="hmw" id="how-might-we">
-      <div class="wrap">
-        <h2 class="hmw__heading">How might we...</h2>
+              <div class="audit-card">
+                <div class="audit-card__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3>Unclear graph interpretation</h3>
+                  <p>Users struggled to understand ages, amounts, and payment periods in the graph, leading to confusion about how the pension options work.</p>
+                </div>
+              </div>
 
-        <div class="hmw-grid">
-          <div class="hmw-card">
-            <span class="hmw-card__number" aria-hidden="true">01</span>
-            <p class="hmw-card__question">How might we make the pension decision process <b>stress-free</b>?</p>
-            <span class="hmw-card__tag">Anxiety &amp; Overwhelmed</span>
+              <div class="audit-card">
+                <div class="audit-card__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6M4.5 10.5v9.75a.75.75 0 0 0 .75.75h13.5a.75.75 0 0 0 .75-.75V10.5M3 21h18" />
+                  </svg>
+                </div>
+                <div>
+                  <h3>Compliance jargon wall</h3>
+                  <p>Dense legal language and an intimidating tone increased uncertainty instead of helping users feel informed and confident.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="hmw-card">
-            <span class="hmw-card__number" aria-hidden="true">02</span>
-            <p class="hmw-card__question">How might we make their choice <b>certain</b>?</p>
-            <span class="hmw-card__tag">Outcome Assurance</span>
-          </div>
-
-          <div class="hmw-card">
-            <span class="hmw-card__number" aria-hidden="true">03</span>
-            <p class="hmw-card__question">How might we encourage people to be <b>active</b> during the process?</p>
-            <span class="hmw-card__tag">Behavior Change</span>
+          <div class="audit-media">
+            <div class="audit-media__panel" aria-hidden="true">
+              <img src="images/Map.svg">
+            </div>
+            <div class="audit-media__panel audit-media__panel--tall" aria-hidden="true">
+              <img src="images/audit1.svg">
+            </div>
+            <div class="audit-media__panel audit-media__panel--tall" aria-hidden="true">
+             <img src="images/audit2.svg">
+            </div>
           </div>
         </div>
       </div>
@@ -2339,14 +2487,24 @@
       <div class="wrap">
         <p class="section-label"><span>Conceptualization</span></p>
         <div class="research__intro">
-          <h2>Retirement decisions don't need to move fast, but a pace people can "trust".</h2>
-          <p>Synthesizing raw research into actionable design principles. Our approach focuses on high-trust financial interactions through psychological safety and cognitive clarity. From there, I started mapping out the features and interactions that would truly matter.</p>
+          <h2>Design Strategy &amp; Principles</h2>
+          <p>Synthesizing research into actionable design principles. My approach focuses on high-trust financial interactions through psychological safety and cognitive clarity. From there, I started mapping out the features and interactions that would truly matter.</p>
         </div>
 
         <div class="pillar-grid">
           <div class="pillar">
             <p class="pillar__number">01</p>
-            <h3 class="pillar__title">Personalized Forecasts</h3>
+            <h3 class="pillar__title">Positive Friction &mdash;</h3>
+            <p class="pillar__lede"><b>Slow down at key moments</b> to provide emotional safety</p>
+            <div class="pillar__points">
+              <div class="pillar__point">Prompt users to use this guidance before download the quotation.</div>
+              <div class="pillar__point">Slow down the pace by including breaks or revealing info progressively</div>
+            </div>
+          </div>
+
+          <div class="pillar">
+            <p class="pillar__number">02</p>
+            <h3 class="pillar__title">Personalized Forecasts &mdash;</h3>
             <p class="pillar__lede"><b>Use self-provided data</b> to personalize outcomes</p>
             <div class="pillar__points">
               <div class="pillar__point">Ask data relevant to the user's unique financial situation and goals</div>
@@ -2356,18 +2514,8 @@
           </div>
 
           <div class="pillar">
-            <p class="pillar__number">02</p>
-            <h3 class="pillar__title">Positive Friction</h3>
-            <p class="pillar__lede"><b>Slow down at key moments</b> to provide emotional safety</p>
-            <div class="pillar__points">
-              <div class="pillar__point">Prompt users to use this guidance before download the quotation.</div>
-              <div class="pillar__point">Slow down the pace by including breaks or revealing info progressively</div>
-            </div>
-          </div>
-
-          <div class="pillar">
             <p class="pillar__number">03</p>
-            <h3 class="pillar__title">Experimentation</h3>
+            <h3 class="pillar__title">Experimentation &mdash;</h3>
             <p class="pillar__lede"><b>Show how the choice shape future income</b> to motivate to play around</p>
             <div class="pillar__points">
               <div class="pillar__point">Incorporate dynamic content that adapts to user's inputs, allowing to see the direct results of the decisions in real-time</div>
@@ -2377,50 +2525,50 @@
           </div>
         </div>
 
-        <h2 class="important-details__heading">More important details to get it right...</h2>
+        <h2 class="important-details__heading">Beyond the Design &mdash;<br>Team alignment and risk reduction</h2>
+        <p class="important-details__intro">Design was only half of the work. The other half was collaborating across teams to solve challenges that could have blocked the project. Here are two key roadblocks I worked through.</p>
 
         <div class="important-details">
-          <div class="important-details__text">
-            <div class="important-details__block">
-              <h3>Translate complex models into confident decisions</h3>
-              <p>To help users make major life decisions, I led to turn complex financial data into clear, actionable insights. In designing our income calculator, we shifted our focus from backend calculations to ensuring users could easily understand and interpret the results. Our research revealed that users wanted to see how gross and net numbers directly impacted their future, requiring us to integrate real-life factors like partner income and dynamic spending. This initiative ultimately aligned our engineering and product teams around solving meaningful user challenges.</p>
-            </div>
-
-            <div class="important-details__block">
-              <h3>"Scale" empathy across the team</h3>
-              <p>When I joined, our analytics tools captured what users were doing, but lacked the qualitative context of why. To bridge this gap, I established a qualitative research framework that translated user motivations into actionable product strategy, uncovering key friction points hidden behind the quantitative data. To turn these insights into immediate action, I spearheaded a dedicated task force comprising PM, Designer, Engineer, and Marketing. This initiative not only aligned user pain points directly with our strategic roadmap prioritization but also established a collaborative, scalable foundation for a research-driven design practice in the team.</p>
-            </div>
+          <div class="roadblock-card">
+            <h3>Scale empathy within the team while delivering at speed</h3>
+            <p>The team was working toward a tight launch deadline, but I identified usability risks for our older user in interpreting complex pension information. Instead of requesting more research time, I <strong>proposed a focused validation of the highest-risk parts</strong> of the journey and <strong>invited stakeholders to observe the usability sessions firsthand</strong>. Seeing users struggle with the experience created shared understanding, aligned user pain points directly with our product priorities, and helped the team quickly agree on targeted improvements without delaying the launch. It also <strong>established a more collaborative, scalable foundation</strong> for a research-driven design practice within the team.</p>
           </div>
 
-          <div class="detail-grid">
-            <article class="detail-card">
-              <div class="detail-card__media">
-                    <img src="images/Sketch.jpg" alt="Technical Feasibility">
-              </div>
-              <p class="detail-card__caption">Technical Feasibility</p>
-            </article>
-
-            <article class="detail-card">
-              <div class="detail-card__media">
-                <img src="images/Chart.jpg" alt="Go Messy">
-              </div>
-              <p class="detail-card__caption">Go Messy</p>
-            </article>
-
-            <article class="detail-card">
-              <div class="detail-card__media">
-                <img src="images/Compare.jpg" alt="Test and Test">
-              </div>
-              <p class="detail-card__caption">Test and Test</p>
-            </article>
-
-            <article class="detail-card">
-              <div class="detail-card__media">
-                <img src="images/Reports.jpg" alt="Stakeholder Buy-in">
-              </div>
-              <p class="detail-card__caption">Stakeholder Buy-in</p>
-            </article>
+          <div class="roadblock-card">
+            <h3>Build transparency within compliance boundaries</h3>
+            <p>Customers wanted to understand their expected net pension, but Legal raised concerns that showing an exact amount could create misleading expectations. I <strong>led cross-functional alignment</strong> between Design, Product, Engineering, and Legal to balance customer needs, regulatory requirements, and business goals.</p>
+            <p>Rather than removing valuable information, I <strong>reframed the challenge</strong> around helping users make informed decisions. I guided the team to transform complex financial calculations into clear, actionable insights by introducing estimated net income with transparent assumptions and explanations. This approach aligned teams around solving the underlying customer need while creating a more trustworthy experience.</p>
           </div>
+        </div>
+
+        <div class="detail-grid">
+          <article class="detail-card">
+            <div class="detail-card__media">
+              <img src="images/Sketch.jpg">
+            </div>
+            <p class="detail-card__caption">Technical Feasibility</p>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-card__media">
+              <img src="images/Chart.jpg">
+            </div>
+            <p class="detail-card__caption">Iterations</p>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-card__media">
+              <img src="images/Reports.jpg">
+            </div>
+            <p class="detail-card__caption">Testing</p>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-card__media">
+              <img src="images/Compare.jpg">
+            </div>
+            <p class="detail-card__caption">Stakeholder Buy-in</p>
+          </article>
         </div>
       </div>
     </section>
@@ -2432,20 +2580,21 @@
         <!-- Row 1: Just-on-time information -->
         <div class="solution-row">
           <div class="solution-row__text">
-            <h3>Just-on-time guidance</h3>
-            <p>As an optional tool, it appears during payout method setup to minimize disruption and provide support at the moment it is most relevant</p>
+            <h3>Guidance at the right moment</h3>
+            <p>As an optional tool, it appears through an overlay at Step 3 to minimize disruption and provide support at the moment it is most relevant.</p>
             <hr class="solution-row__divider">
             <p class="solution-row__kicker">Key Highlights</p>
             <div class="solution-highlights">
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                   </svg>
                 </div>
                 <div>
-                  <h4>Minimize disruption</h4>
-                  <p>An overlay preserves context and progress while still capturing attention.</p>
+                  <h4>Minimal disruption</h4>
+                  <p>The tool is introduced through an overlay that preserves the user's context and progress while capturing attention and communicating key information.</p>
                 </div>
               </div>
               <div class="solution-highlight">
@@ -2463,7 +2612,7 @@
           </div>
 
           <div class="solution-row__media">
-              <img src="images/OnTime.svg" alt="Just-on-time information">
+            <img src="images/OnTime.svg">
             <div class="callout-bubble callout-bubble--dark" style="left: 2.2rem; bottom: 2rem;">
               <p class="callout-bubble__label">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -2479,7 +2628,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
                 </svg>
-                Primary Button
+                Primary CTA
               </p>
               <p>Check whether my choice fits my situation</p>
             </div>
@@ -2489,31 +2638,31 @@
         <!-- Row 2: Life stage reflection -->
         <div class="solution-row">
           <div class="solution-row__text">
-            <h3>Life-stage reflection</h3>
-            <p>By guiding users through easily understandable milestones (such as current age, government retirement age, current savings, and expected monthly expenses), we lowered the cognitive barrier to entry. Users were able to instantly visualize their "financial gap" or surplus in real-time.</p>
+            <h3>Life stage reflection</h3>
+            <p>By guiding users through three main life stages (before and after government retirement age, and after passing away), we helped them reflect on their expected savings and monthly expenses. This reduced complexity and enabled users to quickly understand their potential financial gap or surplus in real time.</p>
             <hr class="solution-row__divider">
             <p class="solution-row__kicker">Key Highlights</p>
             <div class="solution-highlights">
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3" />
                   </svg>
                 </div>
                 <div>
-                  <h4>One milestone at a time</h4>
+                  <h4>Structure questions logically</h4>
                   <p>Groups questions by life stage so context builds naturally as users move through the flow.</p>
                 </div>
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                   </svg>
                 </div>
                 <div>
-                  <h4>Guide future thinking</h4>
-                  <p>Support to reflect on their potential financial needs in different stages, such as having a new hobby after retirement.</p>
+                  <h4>Keep questions short to the point</h4>
+                  <p>Concise phrasing reduces cognitive load for users who may already feel overwhelmed.</p>
                 </div>
               </div>
               <div class="solution-highlight">
@@ -2523,7 +2672,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h4>Built-in calculator support to avoid shifting</h4>
+                  <h4>Calculate on the site to avoid shifting</h4>
                   <p>Live calculations keep users in one place instead of bouncing to a separate tool.</p>
                 </div>
               </div>
@@ -2531,15 +2680,15 @@
           </div>
 
           <div class="solution-row__media">
-              <img src="images/LifeStage.jpg" alt="Photo">
+            <img src="images/LifeStage.jpg">
           </div>
         </div>
 
         <!-- Row 3: Personalize insights -->
         <div class="solution-row">
           <div class="solution-row__text">
-            <h3>Personalize insights</h3>
-            <p>After answering the milestone questions, people land on a personalised outcome, organised into the same familiar categories they've already seen, so it's easy to trace how each decision shapes the final amount.</p>
+            <h3>Side-by-side personalize insights</h3>
+            <p>After answering the questions, users are taken to the next page, where they can see how their choices affect their future pension income. Users can toggle between different payout options, seeing the direct impact on their monthly net income in real time.</p>
             <hr class="solution-row__divider">
             <p class="solution-row__kicker">Key Highlights</p>
             <div class="solution-highlights">
@@ -2550,25 +2699,25 @@
                   </svg>
                 </div>
                 <div>
-                  <h4>Display the result in a calculator-style format</h4>
-                  <p>Outcomes are shown in the same calculator language users already recognize, with categories related to the input from the users in the previous questions.</p>
+                  <h4>"Calculated Net Estimate" framework</h4>
+                  <p>Their inputs from previous stages are grouped by life stage, helping users build context naturally and understand how each decision contributes to the final outcome.</p>
                 </div>
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
                   </svg>
                 </div>
                 <div>
                   <h4>One place for both data and graph view</h4>
-                  <p>Brings numbers and visuals into one place, allowing users to explore information without shifting between them.</p>
+                  <p>Numbers and visuals live side by side so no one has to switch between different formats.</p>
                 </div>
               </div>
               <div class="solution-highlight">
                 <div class="solution-highlight__icon" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
                   </svg>
                 </div>
                 <div>
@@ -2583,7 +2732,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h4>Alert future shortfalls</h4>
+                  <h4>Remind the future risk</h4>
                   <p>A visible warning flags scenarios where income may fall short later on.</p>
                 </div>
               </div>
@@ -2591,7 +2740,38 @@
           </div>
 
           <div class="solution-row__media">
-            <img src="images/Personalization.jpg" alt="Photo">
+            <img src="images/Personalization.jpg">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="outcome" id="outcome">
+      <div class="wrap">
+        <p class="section-label"><span>Final Outcome</span></p>
+
+        <div class="outcome-grid">
+          <div class="outcome-card">
+            <h3>Business impact</h3>
+            <p>The redesigned pension payout calculator was launched and evaluated against the legacy experience over a 3-month trial period. Intentionally slowing users down at key decision points increased comprehension and decision confidence.</p>
+
+            <div class="outcome-stats">
+              <div>
+                <span class="outcome-stat__value">+18%</span>
+                <span class="outcome-stat__label">Decision completion</span>
+              </div>
+              <div>
+                <span class="outcome-stat__value">+8%</span>
+                <span class="outcome-stat__label">Offer downloads</span>
+              </div>
+            </div>
+
+            <p>While initial offer downloads increased by +8%, tracking whether these quotes successfully converted into signed long-term pension contracts 6 months post-launch remains an ongoing data initiative.</p>
+          </div>
+
+          <div class="outcome-card">
+            <h3>Culture impact</h3>
+            <p>Beyond primary conversion metrics, this initiative helped transform Aegon&rsquo;s internal product culture. By demonstrating that evidence-led design and intentional friction could support both compliance and business goals, we also influenced the design system team to better consider the needs of pension customers and improve accessibility for the target audience.</p>
           </div>
         </div>
       </div>
