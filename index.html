@@ -561,9 +561,6 @@
   @media (max-width: 960px){
     .home-intro h1{ font-size: 2.2rem; }
     .home-intro p.lede{ font-size: 1.8rem; }
-    .case-study{ grid-template-columns: 1fr; gap: 1.75rem; padding: 2.5rem 0; }
-    .case-study--reverse .case-study__content{ order: 1; }
-    .case-study--reverse .case-study__media{ order: 2; }
     .side-projects__grid{ grid-template-columns: 1fr; }
     .about-me__grid{ grid-template-columns: 1fr; gap: 2.25rem; }
     .about-me__photo{ max-width: 420px; aspect-ratio: 4 / 3.55; }
@@ -573,6 +570,20 @@
     .home-intro{ padding-top: 2.5rem; padding-bottom: 3.5rem; }
     .home-intro h1{ font-size: 1.9rem; width: 100%; }
     .home-intro p.lede{ font-size: 1.5rem; width: 100%; }
+
+    /* Case study cards: switch from horizontal to stacked layout
+       only at this mobile breakpoint. Image on top (full width),
+       text content below, both within the same card/container.
+       Desktop and tablet (>640px) keep the horizontal grid above. */
+    .case-study{
+      grid-template-columns: 1fr;
+      align-items: stretch;
+      gap: 1.5rem;
+      padding: 2.25rem 0;
+    }
+    .case-study--reverse .case-study__content{ order: 2; }
+    .case-study--reverse .case-study__media{ order: 1; }
+
     .case-study__media--split{ flex-direction: column; aspect-ratio: auto; }
     .case-study__media--split .case-study__media-panel:first-child{ flex-basis: 220px; }
     .case-study__media--split .case-study__media-panel:last-child{ height: 260px; }
@@ -710,6 +721,9 @@
 
         <!-- ---------- Case study 2 — Aegon ---------- -->
         <article class="case-study case-study--reverse">
+          <figure class="case-study__media">
+              <img src="images/DIPBanner.jpg" alt="An elderly couple reviewing their retirement plans together">
+          </figure>
           <div class="case-study__content">
             <span class="case-study__eyebrow">
               2024 <span class="dot"></span> <img height=26px src="images/Aegon.svg" alt="Aegon logo"> <span class="dot"></span> Insurance
@@ -724,9 +738,7 @@
               <svg viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 7h17M13 1l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
-          <figure class="case-study__media">
-              <img src="images/DIPBanner.jpg" alt="An elderly couple reviewing their retirement plans together">
-          </figure>
+          
         </article>
 
         <!-- ---------- Case study 3 — Philips ---------- -->
