@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irene Ying-Ju Chen — Design a Traceable AI Research Workflow</title>
+<style>
+  :root{
+    --navy: #001430;
+    --navy-soft: #2b3648;
+    --body: #565b66;
+    --muted: #838d9c;
+    --bg: #f7f9ff;
+    --surface: #ffffff;
+    --border: #e4e7ef;
+    --border-soft: #eceff6;
+    --rust: #9b3412;
+    --gold: #c9973a;
+    --yellow: #e8b930;
+    --red: #c54b55;
+    --green: #3f8f5f;
+    --purple: #7457c9;
+    --orange: #d97a3f;
+    --blue: #1c4fd6;
+
+    --max-w: 1280px;
+    --radius-lg: 16px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; font-family:var(--font); background:var(--bg); color:var(--navy);
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  h1,h2,h3,p{ margin:0; }
+
+  .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 6.25rem; }
+
+  :focus-visible{ outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background:var(--navy); color:#fff; padding:0.75rem 1.25rem; border-radius:0 0 8px 0; z-index:100;
+  }
+  .skip-link:focus{ left:0; }
+
+  /* =====================================================================
+     HEADER
+     ===================================================================== */
+
+  .site-header{
+    border-bottom:1px solid var(--border-soft);
+  }
+  .site-header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:1.6rem; padding-bottom:1.6rem;
+  }
+  .logo{ font-weight:700; font-size:1.05rem; letter-spacing:-0.01em; }
+  .main-nav{ display:flex; align-items:center; gap:2.5rem; }
+  .icon-btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; background:var(--navy); border-radius:5px; color:white;
+  }
+  .icon-btn svg{ width:14px; height:14px; }
+
+  .hamburger-btn{
+    display:none; flex-direction:column; justify-content:center; align-items:center;
+    gap:5px; width:40px; height:40px;
+    background:none; border:1px solid var(--border); border-radius:8px; padding:0;
+    cursor:pointer; flex-shrink:0;
+  }
+  .hamburger-btn__line{
+    width:18px; height:2px; background:var(--navy); border-radius:2px;
+    transition:transform 0.25s ease, opacity 0.25s ease;
+  }
+  .hamburger-btn[aria-expanded="true"] .hamburger-btn__line:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .hamburger-btn[aria-expanded="true"] .hamburger-btn__line:nth-child(2){ opacity:0; }
+  .hamburger-btn[aria-expanded="true"] .hamburger-btn__line:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-nav{
+    display:none; flex-direction:column; max-height:0; overflow:hidden;
+    border-top:1px solid var(--border-soft); background:var(--surface);
+    transition:max-height 0.3s ease;
+  }
+  .mobile-nav.is-open{ max-height:260px; }
+  .mobile-nav a{
+    display:flex; align-items:center; gap:0.6rem;
+    padding:1rem 1.75rem; font-size:1rem; font-weight:600; color:var(--navy-soft);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .mobile-nav a:last-child{ border-bottom:none; }
+  .mobile-nav__linkedin svg{ width:18px; height:18px; }
+
+  /* =====================================================================
+     SECTION LABEL
+     ===================================================================== */
+
+  .eyebrow{ display:flex; align-items:center; gap:0.7rem; margin-bottom:1.6rem; }
+  .eyebrow span{ font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--rust); }
+  .eyebrow--on-dark span{ color:var(--yellow); }
+  .eyebrow .bar{
+    width: 4px;
+    height: 16px;
+    background: var(--rust);
+    border-radius: 1px;
+  }
+
+
+  section{ padding-top:5.5rem; padding-bottom:6rem; }
+
+  /* =====================================================================
+     HERO
+     ===================================================================== */
+
+  .hero{ padding-top:5.5rem; padding-bottom:5.5rem; }
+  .hero h1{
+    font-size:2.9rem; line-height:1.12; font-weight:700; letter-spacing:-0.02em;
+    color:var(--navy); max-width:20ch; margin-bottom:1.5rem;
+  }
+  .hero__lede{ font-size:1.15rem; line-height:1.65; color:var(--body); max-width:60ch; }
+
+  /* =====================================================================
+     PIPELINE STEPPER
+     ===================================================================== */
+
+  .pipeline{ padding-top:1.5rem; padding-bottom:5.5rem; }
+  .pipeline-track{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; position:relative; }
+  .pipeline-node{ position:relative; background:var(--surface); border:1px solid var(--border); padding:2rem 2.1rem; }
+  .pipeline-node:first-child{ border-radius:var(--radius-md) 0 0 var(--radius-md); }
+  .pipeline-node:last-child{ border-radius:0 var(--radius-md) var(--radius-md) 0; }
+  .pipeline-node + .pipeline-node{ border-left:none; }
+  .pipeline-node--final{ background:white; border-color:var(--border); }
+
+  .pipeline-node__num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:32px; height:32px; border-radius:50%; font-size:0.82rem; font-weight:800; color:#fff; flex-shrink:0;
+    margin-bottom:1.1rem;
+  }
+  .pipeline-node__num--1{ background:var(--red); }
+  .pipeline-node__num--2{ background:var(--orange); }
+  .pipeline-node__num--3{ background:var(--green); }
+  .pipeline-node__num--4{ background:var(--purple); }
+  .pipeline-node__title{ font-size:0.8rem; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; color:var(--navy); margin-bottom:0.7rem; }
+  .pipeline-node--final .pipeline-node__title{ color:var(--navy); }
+  .pipeline-node p{ font-size:0.86rem; color:var(--navy-soft); margin-bottom:0.3rem; font-weight:600; }
+  .pipeline-node--final p{ color:#fff; }
+  .pipeline-node ul{ display:flex; flex-direction:column; gap:0.2rem; }
+  .pipeline-node li{ font-size:0.82rem; color:var(--navy); }
+  .pipeline-node--final li{ color:var(--navy); }
+
+  /* =====================================================================
+     EXECUTIVE SUMMARY
+     ===================================================================== */
+
+  .summary{ background:var(--navy); color:#fff; padding-top:6.5rem; padding-bottom:6.5rem; }
+  .summary__quote{
+    font-size:2.1rem; line-height:1.28; font-weight:700; letter-spacing:-0.01em;
+    max-width:34ch; margin:0 0 1.5rem;
+  }
+  .summary__body{
+    font-size:1rem; line-height:1.7; color:rgba(255,255,255); max-width:70ch; margin-bottom:3.25rem;
+  }
+
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; }
+  .compare-card{
+    background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.14);
+    border-radius:var(--radius-md); padding:1.75rem;
+  }
+  .compare-card--accent{ border-color:rgba(232,185,48,0.4); background:rgba(232,185,48,0.06); }
+  .compare-card__tag{
+    display:inline-block; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+    line-height:1.5; color:rgba(255,255,255,0.5); margin-bottom:0.9rem;
+  }
+  .compare-card__tag--gold{ color:var(--yellow); }
+  .compare-card h3{ font-size:1.2rem; font-weight:700; margin-bottom:1.1rem; }
+  .compare-card li{
+    display:flex; align-items:baseline; gap:0.55rem; font-size:0.9rem; line-height:1.5;
+    color:rgba(255,255,255,0.8); padding:0.4rem 0; border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .compare-card li:first-child{ border-top:none; padding-top:0; }
+  .compare-card li::before{ content:""; width:4px; height:4px; border-radius:50%; background:currentColor; opacity:0.5; flex-shrink:0; }
+
+  /* =====================================================================
+     SHARED: section intros + pull-quote
+     ===================================================================== */
+
+  .section-intro{ max-width:80ch; margin-bottom:3rem; }
+  .section-intro h2{ font-size:2rem; line-height:1.28; font-weight:700; letter-spacing:-0.01em; color:var(--navy); margin-bottom:1.8rem; max-width:80ch; }
+  .section-intro p{ font-size:1rem; line-height:1.65; color:var(--body); }
+
+  .pull-quote{
+    padding-left:1.4rem; border-left:3px solid var(--rust);
+    font-size:1.15rem; line-height:1.55; font-style:italic; color:var(--navy-soft); max-width:60ch;
+  }
+  .pull-quote strong{ color:var(--rust); font-style:normal; }
+
+  /* =====================================================================
+     OPERATIONAL CHALLENGE
+     ===================================================================== */
+
+  .challenge-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  .challenge-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:2rem; box-shadow:0 20px 40px -32px rgba(15,30,60,0.25);
+  }
+
+  .challenge-card h3{ font-size:1.4rem; font-weight:700; color:var(--navy); margin-bottom:0.75rem; }
+  .challenge-card p{ font-size:1rem; line-height:1.55; color:var(--body); }
+
+  /* =====================================================================
+     WORKFLOW TIMELINE
+     ===================================================================== */
+
+  .workflow .pull-quote{ margin-bottom:3rem; }
+
+  .timeline{ position:relative; }
+  .timeline::before{
+    content:""; position:absolute; left:23px; top:8px; bottom:8px; width:1px; background:var(--border);
+  }
+  .t-step{ position:relative; display:grid; grid-template-columns:48px 1fr; gap:1.75rem; padding-bottom:3rem; }
+  .t-step:last-child{ padding-bottom:0; }
+  .t-step__marker{
+    position:relative; z-index:1; width:48px; height:48px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; font-weight:800; color:#fff; background:var(--navy);
+  }
+  .t-step__marker--red{ background:var(--red); }
+  .t-step__marker--orange{ background:var(--orange); }
+  .t-step__marker--green{ background:var(--green); }
+  .t-step__marker--purple{ background:var(--purple); }
+
+  .t-step__card{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:1.75rem 2rem; display:flex; flex-direction:column;
+    box-shadow:0 20px 40px -32px rgba(15,30,60,0.25);
+  }
+  .t-step__title-row{ display:flex; align-items:baseline; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.4rem; }
+  .t-step__title-row h3{ font-size:1.4rem; font-weight:700; color:var(--navy); }
+  .t-step__meta{ font-size:0.78rem; font-weight:600; color:var(--muted); }
+  .t-step__desc{ font-size:1rem; line-height:1.65; color:var(--body); margin-bottom:1rem; }
+
+  .prompt-panel{ background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); padding:1rem 1.2rem; }
+  .prompt-panel__label{ display:flex; align-items:center; gap:0.45rem; font-size:0.74rem; font-weight:700; color:var(--blue); margin-bottom:0.55rem; }
+  .prompt-panel__label svg{ width:13px; height:13px; }
+  .prompt-panel p{ font-family:var(--mono); font-size:0.79rem; line-height:1.6; color:var(--navy-soft); }
+
+  /* =====================================================================
+     ANALYTICAL EXAMPLE
+     ===================================================================== */
+
+  .example-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:2.5rem; align-items:stretch; }
+  .example-card{ border-radius:var(--radius-lg); padding:1.9rem; border:1px solid; display:flex; flex-direction:column; height:100%; box-shadow:0 20px 40px -32px rgba(15,30,60,0.25); }
+  .example-card--weak{ background:#fbeeec; border-color:#f0c9c1; }
+  .example-card--strong{ background:#eaf5ee; border-color:#c3e3cf; }
+  .example-card__label{ display:flex; align-items:center; gap:0.5rem; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:1rem; }
+  .example-card--weak .example-card__label{ color:var(--red); }
+  .example-card--strong .example-card__label{ color:var(--green); }
+  .example-card__dot{ width:8px; height:8px; border-radius:50%; }
+  .example-card--weak .example-card__dot{ background:var(--red); }
+  .example-card--strong .example-card__dot{ background:var(--green); }
+  .example-card blockquote{ font-size:1.08rem; line-height:1.5; font-style:italic; color:var(--navy); margin-bottom:1.25rem; }
+  .example-card__note{ font-size:0.88rem; line-height:1.6; color:var(--navy-soft); margin-top:auto; }
+  .example-card__note strong{ color:var(--navy); }
+
+  /* =====================================================================
+     FRAMEWORKS
+     ===================================================================== */
+
+  .framework-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .framework-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.6rem; box-shadow:0 20px 40px -32px rgba(15,30,60,0.25); }
+  .framework-tag{
+    display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--rust); background:rgba(155,52,18,0.08); padding:0.3rem 0.65rem; border-radius:999px; margin-bottom:1rem;
+  }
+  .framework-card h3{ font-size:1.4rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem; }
+  .framework-card p{ font-size:1rem; line-height:1.6; color:var(--body); }
+
+  /* =====================================================================
+     GOOD HABITS (dark band)
+     ===================================================================== */
+
+  .habits{ background:var(--navy); color:#fff; padding-top:6.5rem; padding-bottom:6.5rem; }
+  .habits .section-intro h2{ color:#fff; max-width:32ch; }
+  .habit-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  .habit-card{ background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.14); border-radius:var(--radius-md); padding:1.75rem; }
+  .habit-card__num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:50%;
+    background:var(--yellow); color:var(--navy); font-size:0.78rem; font-weight:800; margin-bottom:1.1rem;
+  }
+  .habit-card h3{ font-size:1.4rem; font-weight:700; margin-bottom:0.65rem; }
+  .habit-card p{ font-size:1rem; line-height:1.6; color:rgba(255,255,255); }
+
+  /* =====================================================================
+     RESPONSIVE
+     ===================================================================== */
+
+  @media (max-width:960px){
+    .wrap{ padding:0 1.75rem; }
+    section{ padding-top:4rem; padding-bottom:4.5rem; }
+    .hero{ padding-top:3rem; padding-bottom:3rem; }
+    .hero h1{ font-size:2.4rem; }
+    .pipeline{ padding-top:1rem; padding-bottom:4rem; }
+    .summary, .habits{ padding-top:4rem; padding-bottom:4rem; }
+    .pipeline-track{ grid-template-columns:1fr 1fr; }
+    .pipeline-node:nth-child(2){ border-radius:0 var(--radius-md) 0 0; }
+    .pipeline-node:nth-child(3){ border-radius:0 0 0 var(--radius-md); border-top:none; }
+    .pipeline-node:nth-child(2n){ border-left:1px solid var(--border); }
+    .pipeline-node:nth-child(1){ border-radius:var(--radius-md) 0 0 0; }
+    .pipeline-node:nth-child(4){ border-radius:0 0 var(--radius-md) 0; border-top:none; }
+    .compare-grid{ grid-template-columns:1fr; }
+    .challenge-grid{ grid-template-columns:1fr; }
+    .example-grid{ grid-template-columns:1fr; }
+    .framework-grid{ grid-template-columns:1fr 1fr; }
+    .habit-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 1.25rem; }
+    section{ padding-top:2.5rem; padding-bottom:3rem; }
+    .site-header .wrap{ padding:1.1rem 1.25rem; }
+    .logo{ font-size:0.95rem; }
+    .main-nav{ display:none; }
+    .hamburger-btn{ display:flex; }
+    .mobile-nav{ display:flex; }
+    .hero{ padding-top:2rem; padding-bottom:2rem; }
+    .summary, .habits{ padding-top:3rem; padding-bottom:3rem; }
+    .hero h1{ font-size:2rem; }
+    .hero__lede{ font-size:1.02rem; }
+    .pipeline-track{ grid-template-columns:1fr; }
+    .pipeline-node{ border-radius:0 !important; border-left:1px solid var(--border) !important; border-top:1px solid var(--border) !important; }
+    .pipeline-node:first-child{ border-radius:var(--radius-md) var(--radius-md) 0 0 !important; }
+    .pipeline-node:last-child{ border-radius:0 0 var(--radius-md) var(--radius-md) !important; }
+    .summary__quote{ font-size:1.55rem; }
+    .section-intro h2{ font-size:1.6rem; max-width:100%; }
+    .timeline::before{ left:19px; }
+    .t-step{ grid-template-columns:40px 1fr; gap:1.1rem; }
+    .t-step__marker{ width:40px; height:40px; font-size:0.88rem; }
+    .t-step__card{ padding:1.4rem; }
+    .framework-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">Irene Ying-Ju Chen</a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="https://www.linkedin.com/in/ying-ju-chen-8064aa/" class="icon-btn" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" fill="white"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+        </a>
+      </nav>
+
+      <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <span class="hamburger-btn__line"></span>
+        <span class="hamburger-btn__line"></span>
+        <span class="hamburger-btn__line"></span>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile primary">
+      <a href="https://www.linkedin.com/in/ying-ju-chen-8064aa/" class="mobile-nav__linkedin" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V23h-4V8zM8.5 8h3.83v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z"/></svg>
+        LinkedIn
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow"><span class="bar" aria-hidden="true"></span><span>Bol · 2026</span></p>
+        <h1>Design a traceable AI research workflow</h1>
+        <p class="hero__lede">Scale qualitative discovery without losing human reasoning, evidence-tracing, or qualitative rigor.</p>
+      </div>
+    </section>
+
+    <!-- ================= PIPELINE OVERVIEW ================= -->
+    <section class="pipeline" id="overview">
+      <div class="wrap">
+        <div class="pipeline-track">
+          <div class="pipeline-node">
+            <div class="pipeline-node__top">
+              <span class="pipeline-node__num pipeline-node__num--1">1</span>
+              <span class="pipeline-node__title">Clean up</span>
+            </div>
+            <ul><li>Raw transcript</li><li>Hesitation intact</li><li>Contradictions flagged</li></ul>
+          </div>
+          <div class="pipeline-node">
+            <div class="pipeline-node__top">
+              <span class="pipeline-node__num pipeline-node__num--2">2</span>
+              <span class="pipeline-node__title">Analysis</span>
+            </div>
+            <ul><li>Code behaviour</li><li>Cluster pattern</li><li>Identify jobs</li></ul>
+          </div>
+          <div class="pipeline-node">
+            <div class="pipeline-node__top">
+              <span class="pipeline-node__num pipeline-node__num--3">3</span>
+              <span class="pipeline-node__title">Insights</span>
+            </div>
+            <ul><li>Test explanation</li><li>Formulate insights</li><li>Frame opportunity</li></ul>
+          </div>
+          <div class="pipeline-node pipeline-node--final">
+            <div class="pipeline-node__top">
+              <span class="pipeline-node__num pipeline-node__num--4">4</span>
+              <span class="pipeline-node__title">Decisions</span>
+            </div>
+            <ul><li>UX problem</li><li>Opportunity</li><li>Recommendation</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXECUTIVE SUMMARY ================= -->
+    <section class="summary" id="summary">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--on-dark"><span>Executive summary</span></p>
+        <h2 class="summary__quote">AI is most valuable not when it produces the answer, but when it makes the reasoning easier to explore, challenge, and document.</h2>
+        <p class="summary__body">As qualitative research scales, designers face a dilemma: spend weeks manually coding transcripts, or use naive AI prompts that hallucinate insights and strip out human context. To solve this, I designed a multi-stage AI research pipeline that acts as a thinking partner. By enforcing strict evidence-tracing protocols, this workflow drastically accelerates qualitative synthesis while ensuring human judgment remains in full control of product decisions.</p>
+
+        <div class="compare-grid">
+          <div class="compare-card">
+            <span class="compare-card__tag">Before AI</span>
+            <h3>Fragmented insights</h3>
+            <ul>
+              <li>Messy</li>
+              <li>Difficult to compare</li>
+              <li>Highly contextual</li>
+              <li>Time-consuming</li>
+            </ul>
+          </div>
+          <div class="compare-card compare-card--accent">
+            <span class="compare-card__tag compare-card__tag--gold">After AI</span>
+            <h3>Traceable insights</h3>
+            <ul>
+              <li>Structured</li>
+              <li>Comparable</li>
+              <li>Evidence-based</li>
+              <li>Actionable</li>
+            </ul>
+          </div>
+          <div class="compare-card compare-card--accent">
+            <span class="compare-card__tag compare-card__tag--gold">Researcher owns</span>
+            <h3>Human judgement</h3>
+            <ul>
+              <li>Challenge AI codes</li>
+              <li>Decide significance</li>
+              <li>Interpret meaning</li>
+              <li>Sign off insights</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= OPERATIONAL CHALLENGE ================= -->
+    <section id="challenge">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow"><span>Operational Challenge</span></p>
+          <h2>The difficult part isn't collecting the data, but interpreting it.</h2>
+          <p>When designers ask AI for quick insights directly from raw transcripts, they risk importing unverified assumptions and hallucinated summaries directly onto their product roadmaps.</p>
+        </div>
+
+        <div class="challenge-grid">
+          <div class="challenge-card">
+            <h3>Failure of Naive AI</h3>
+            <p>Jumping directly from raw transcripts to "give me key insights" creates summaries that cannot be traced back to real user statements. Unverified assumptions disguise themselves as findings, creating risk for product roadmaps.</p>
+          </div>
+          <div class="challenge-card">
+            <h3>Human bottleneck</h3>
+            <p>Manual thematic analysis remains the gold standard for accuracy, but its time-intensive nature often leads teams to skip qualitative synthesis during fast-paced continuous discovery sprints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORKFLOW ================= -->
+    <section class="workflow" id="workflow">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow"><span>8-Stage Research Pipeline</span></p>
+          <h2>Design Philosophy — AI as a thinking partner</h2>
+          <p>AI is most valuable not when it produces the final answer, but when it makes reasoning easier to explore, challenge, and document. The researcher remains responsible for human judgment, sign-offs, and final interpretation. To preserve evidence tracing, every stage in this modular pipeline uses isolated prompts with a single task.</p>
+        </div>
+
+        <div class="pull-quote">“Separate what participants <strong>said</strong> from what we <strong>think it means</strong>, and never let an assumption travel disguised as a finding.”</div>
+
+        <div class="timeline">
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--red">1</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Data cleaning</h3></div>
+              <p class="t-step__desc">Clean and structure the transcript while preserving hesitations, repetitions, and contradictions as signals.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Clean this transcript and separate speakers. Do NOT remove hesitations or self-corrections — tag them like [hesitation]. Return a change log.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--orange">2</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Behavioral coding</h3></div>
+              <p class="t-step__desc">Code four parallel dimensions per statement, behaviour, context/trigger, emotional register, certainty, and keep every label neutral and descriptive.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>For each statement return: quote | neutral behaviour | context | emotion | certainty | self-reported/observed. Describe the action, don't infer motivation.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--orange">3</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Pattern identification across participants</h3><span class="t-step__meta">Com-B model · Snapshots</span></div>
+              <p class="t-step__desc">Decide a significance formula before looking into it (frequency × severity × uniqueness × relevance).</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Show code in 3+ participants, direct contradictions, and single-occurrence code. Do not rank by frequency.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--orange">4</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Thematic clustering</h3><span class="t-step__meta">Thematic Analysis · MECE (only for communication)</span></div>
+              <p class="t-step__desc">Let themes emerge through Thematic Analysis, then organize the findings into an opportunity tree.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Group these patterns into themes in 3 different ways. Name themes using language from the data, and note overlaps and misfits.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--orange">5</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>JTBD derivation</h3><span class="t-step__meta">JTBD framework</span></div>
+              <p class="t-step__desc">Derive jobs from themes with functional, emotional and social dimensions, and map the forces of progress — push, pull, anxiety, habit. Anchor each job to a quote.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Turn each theme into a JTBD with functional/emotional/social dimensions. Critique each: is it a job, or a feature/solution? Rewrite weak ones and cite the quote.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--green">6</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Competing explanation testing</h3><span class="t-step__meta">Occam's razor principle</span></div>
+              <p class="t-step__desc">From each theme/JTBD, force at least one alternative reading and state why you reject or retain it.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Give 2-3 alternative explanations of the same evidence, and state what additional data would distinguish between them.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--green">7</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Insight formulation</h3></div>
+              <p class="t-step__desc">Write each insight as pattern + meaning + implication. Every concept must trace to a specific quote.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Draft an insight from this pattern. Then highlight every claim NOT directly supported by a quote and flag it as an assumption.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="t-step">
+            <span class="t-step__marker t-step__marker--purple">8</span>
+            <div class="t-step__card">
+              <div class="t-step__title-row"><h3>Opportunity framing</h3><span class="t-step__meta">Pyramid + MECE (only for presentation)</span></div>
+              <p class="t-step__desc">Build the chain from Insight, UX problem, Opportunity to Recommendation. Flag any inferred link.</p>
+              <div class="prompt-panel">
+                <p class="prompt-panel__label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>AI prompt could be...</p>
+                <p>Restructure my final recommendations to be as MECE as possible for a stakeholder deck. Flag overlap and gaps, but do not invent recommendations to fill gaps.</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ANALYTICAL EXAMPLE ================= -->
+    <section id="example">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow"><span>Analytical Example</span></p>
+          <h2>Evidence vs. Assumption — <br/>It's about uncertainty, rather than speed</h2>
+          <p>Demonstrate how single-word additions by AI can distort research findings if left unchallenged.</p>
+        </div>
+
+        <div class="example-grid">
+          <div class="example-card example-card--weak">
+            <span class="example-card__label"><span class="example-card__dot"></span>Weak interpretation</span>
+            <blockquote>“When I'm stuck, I want to generate directions so I can get started quickly.”</blockquote>
+            <p class="example-card__note"><strong>Flaw:</strong> The word "quickly" adds an assumption about speed that the participant never actually mentioned. It was about feeling stuck because of uncertainty, not gaining speed.</p>
+          </div>
+          <div class="example-card example-card--strong">
+            <span class="example-card__label"><span class="example-card__dot"></span>Strong interpretation</span>
+            <blockquote>“When I'm faced with an unclear brief and don't know where to start, I want to reduce uncertainty about the problem space so I can choose a direction with confidence.”</blockquote>
+            <p class="example-card__note"><strong>Rigor:</strong> Every word is earned from the evidence. The job is about resolving uncertainty, not gaining speed. Confidence came from the data — "quickly" did not.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FRAMEWORKS ================= -->
+    <section id="frameworks">
+      <div class="wrap">
+        <div class="section-intro">
+          <p class="eyebrow"><span>Frameworks</span></p>
+          <h2>Frameworks earn their place only where they add value</h2>
+        </div>
+
+        <div class="framework-grid">
+          <div class="framework-card">
+            <span class="framework-tag">Organising</span>
+            <h3>Snapshots</h3>
+            <p>One card per participant/segment with key behaviors, triggers, JTBD, emotions, and quotes. Compare side by side to spot patterns and contradictions, grounded in evidence, not assumptions.</p>
+          </div>
+          <div class="framework-card">
+            <span class="framework-tag">Organising</span>
+            <h3>Thematic analysis</h3>
+            <p>Let themes emerge from the data, not predefined categories.</p>
+          </div>
+          <div class="framework-card">
+            <span class="framework-tag">Reasoning</span>
+            <h3>Occam's razor principle</h3>
+            <p>Serves as a selection criterion between alternatives, and retains the explanation with fewer unsupported assumptions.</p>
+          </div>
+          <div class="framework-card">
+            <span class="framework-tag">Analytical</span>
+            <h3>COM-B model</h3>
+            <p>Explains behavior via Capability, Opportunity, Motivation. It owns the "why" in analysis.</p>
+          </div>
+          <div class="framework-card">
+            <span class="framework-tag">Analytical</span>
+            <h3>JTBD</h3>
+            <p>Long-term needs and barriers to adoption, based on what participants actually say.</p>
+          </div>
+          <div class="framework-card">
+            <span class="framework-tag">Presentation</span>
+            <h3>Pyramid + MECE</h3>
+            <p>MECE organizes clear, non-overlapping recommendations, while the Pyramid Principle makes sure the story leads with the main conclusion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GOOD HABITS ================= -->
+    <section class="habits">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2>Good habits to make AI-assisted analysis more traceable</h2>
+        </div>
+
+        <div class="habit-grid">
+          <div class="habit-card">
+            <span class="habit-card__num">01</span>
+            <h3>Never let AI generate and validate in the same chat</h3>
+            <p>Draft in one prompt. Attack the draft in a separate one. Generation and critique are different cognitive modes.</p>
+          </div>
+          <div class="habit-card">
+            <span class="habit-card__num">02</span>
+            <h3>Keep a disagreement log</h3>
+            <p>It prevents the system from hiding uncertainty by recording what the AI concluded, what another AI, analyst, or reviewer concluded differently, why they disagreed, and what evidence each side used.</p>
+          </div>
+          <div class="habit-card">
+            <span class="habit-card__num">03</span>
+            <h3>Always keep quotes next to the insight</h3>
+            <p>No quote means it's a hypothesis, rather than a finding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('hamburgerBtn');
+      var nav = document.getElementById('mobileNav');
+      if(!btn || !nav) return;
+
+      function closeMenu(){
+        nav.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+      }
+      function openMenu(){
+        nav.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close menu');
+      }
+      btn.addEventListener('click', function(){
+        var isOpen = nav.classList.contains('is-open');
+        if(isOpen){ closeMenu(); } else { openMenu(); }
+      });
+      nav.querySelectorAll('a').forEach(function(link){
+        link.addEventListener('click', closeMenu);
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') closeMenu();
+      });
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 640) closeMenu();
+      });
+    })();
+  </script>
+
+</body>
+</html>
