@@ -250,10 +250,6 @@
     position: relative;
   }
 
-  .case-study:has(a.case-study__cta){
-    cursor: pointer;
-  }
-
   .case-study__media{
     margin: 0;
     border-radius: 14px;
@@ -263,7 +259,10 @@
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .case-study:has(a.case-study__cta):hover .case-study__media{
+  /* Scoped to the button itself: hovering the "View case study" link
+     triggers the media zoom, but the media/card is not a click target
+     and hovering elsewhere on the card does nothing. */
+  .case-study:has(a.case-study__cta:hover) .case-study__media{
     transform: scale(1.015);
     box-shadow: 0 20px 40px -28px rgba(15, 30, 60, 0.3);
   }
@@ -379,7 +378,10 @@
     color: var(--navy);
   }
 
-  a.case-study__cta::after{
+  /* Project cards ("How I work") still use the whole-card stretched-click
+     pattern; only the case-study article cards below were scoped down to
+     button-only clicks, so this stays limited to .project-card. */
+  .project-card a.case-study__cta::after{
     content: "";
     position: absolute;
     inset: 0;
