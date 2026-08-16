@@ -6,22 +6,46 @@
 <title>Irene Ying-Ju Chen — Design a Traceable AI Research Workflow</title>
 <style>
   :root{
-    --navy: #001430;
-    --navy-soft: #2b3648;
-    --body: #565b66;
-    --muted: #838d9c;
-    --bg: #f7f9ff;
+    --navy: #101828;
+    --navy-soft: #344054;
+    --body: #475467;
+    --muted: #667085;
+    --bg: #f8f9fb;
     --surface: #ffffff;
-    --border: #e4e7ef;
-    --border-soft: #eceff6;
-    --rust: #9b3412;
-    --gold: #c9973a;
-    --yellow: #e8b930;
-    --red: #c54b55;
-    --green: #3f8f5f;
-    --purple: #7457c9;
-    --orange: #d97a3f;
-    --blue: #1c4fd6;
+    --card-muted: #f2f4f7;
+    --border: #e4e7ec;
+    --border-soft: #eef1f5;
+
+    /* Single, refined accent — shared with index.html and the other
+       case-study pages so the whole site reads as one cohesive product. */
+    --rust: var(--accent);          /* legacy name kept so existing rules don't need renaming */
+    --gold: var(--accent);
+    --yellow: var(--highlight);     /* used only for the dark-section badge/eyebrow below */
+    --blue: var(--accent);
+    --accent: #2952cc;
+    --accent-hover: #1f3fa3;
+    --accent-soft: #eaf0fd;
+    --accent-tint: #d6e3fb;
+    --accent-on-dark: #7c9df5;
+
+    /* Secondary highlight — a deliberate second color, reserved for
+       badges and dark-section call-outs so it never competes with the
+       primary accent used for links, buttons, and focus states. */
+    --highlight: #e8b930;
+    --highlight-text: var(--navy);
+
+    /* Status hierarchy — used only where meaning is semantic (weak/strong
+       examples), never as decorative variety. */
+    --red: #b42318;
+    --green: #12805c;
+
+    /* Neutral, single-hue progression for the 4-step process indicators
+       (was a red/orange/green/purple rainbow — now reads as one clear,
+       calm progression toward the accent-colored final step). */
+    --step-1: var(--red);
+    --step-2: var(--highlight);
+    --step-3: var(--green);
+    --step-4: var(--accent);
 
     --max-w: 1280px;
     --radius-lg: 16px;
@@ -44,7 +68,7 @@
 
   .wrap{ max-width:var(--max-w); margin:0 auto; padding:0 6.25rem; }
 
-  :focus-visible{ outline:2px solid var(--blue); outline-offset:3px; border-radius:4px; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:4px; }
 
   .skip-link{
     position:absolute; left:-9999px; top:0;
@@ -68,7 +92,9 @@
   .icon-btn{
     display:inline-flex; align-items:center; justify-content:center;
     width:26px; height:26px; background:var(--navy); border-radius:5px; color:white;
+    transition:background-color 0.2s ease;
   }
+  .icon-btn:hover{ background:var(--accent); }
   .icon-btn svg{ width:14px; height:14px; }
 
   .hamburger-btn{
@@ -76,7 +102,9 @@
     gap:5px; width:40px; height:40px;
     background:none; border:1px solid var(--border); border-radius:8px; padding:0;
     cursor:pointer; flex-shrink:0;
+    transition:border-color 0.2s ease;
   }
+  .hamburger-btn:hover{ border-color:var(--accent); }
   .hamburger-btn__line{
     width:18px; height:2px; background:var(--navy); border-radius:2px;
     transition:transform 0.25s ease, opacity 0.25s ease;
@@ -144,10 +172,10 @@
     width:32px; height:32px; border-radius:50%; font-size:0.82rem; font-weight:800; color:#fff; flex-shrink:0;
     margin-bottom:1.1rem;
   }
-  .pipeline-node__num--1{ background:var(--red); }
-  .pipeline-node__num--2{ background:var(--orange); }
-  .pipeline-node__num--3{ background:var(--green); }
-  .pipeline-node__num--4{ background:var(--purple); }
+  .pipeline-node__num--1{ background:var(--step-1); }
+  .pipeline-node__num--2{ background:var(--step-2); }
+  .pipeline-node__num--3{ background:var(--step-3); }
+  .pipeline-node__num--4{ background:var(--step-4); }
   .pipeline-node__title{ font-size:0.8rem; font-weight:800; letter-spacing:0.05em; text-transform:uppercase; color:var(--navy); margin-bottom:0.7rem; }
   .pipeline-node--final .pipeline-node__title{ color:var(--navy); }
   .pipeline-node p{ font-size:0.86rem; color:var(--navy-soft); margin-bottom:0.3rem; font-weight:600; }
@@ -166,7 +194,7 @@
     max-width:34ch; margin:0 0 1.5rem;
   }
   .summary__body{
-    font-size:1rem; line-height:1.7; color:rgba(255,255,255); max-width:70ch; margin-bottom:3.25rem;
+    font-size:1rem; line-height:1.7; color:rgba(255,255,255,0.75); max-width:70ch; margin-bottom:3.25rem;
   }
 
   .compare-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.5rem; }
@@ -174,7 +202,7 @@
     background:rgba(255,255,255,0.045); border:1px solid rgba(255,255,255,0.14);
     border-radius:var(--radius-md); padding:1.75rem;
   }
-  .compare-card--accent{ border-color:rgba(232,185,48,0.4); background:rgba(232,185,48,0.06); }
+  .compare-card--accent{ border-color:rgba(232,185,48,0.4); background:rgba(232,185,48,0.08); }
   .compare-card__tag{
     display:inline-block; font-size:0.72rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
     line-height:1.5; color:rgba(255,255,255,0.5); margin-bottom:0.9rem;
@@ -232,10 +260,10 @@
     display:flex; align-items:center; justify-content:center;
     font-size:1rem; font-weight:800; color:#fff; background:var(--navy);
   }
-  .t-step__marker--red{ background:var(--red); }
-  .t-step__marker--orange{ background:var(--orange); }
-  .t-step__marker--green{ background:var(--green); }
-  .t-step__marker--purple{ background:var(--purple); }
+  .t-step__marker--red{ background:var(--step-1); }
+  .t-step__marker--orange{ background:var(--step-2); }
+  .t-step__marker--green{ background:var(--step-3); }
+  .t-step__marker--purple{ background:var(--step-4); }
 
   .t-step__card{
     background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg);
@@ -278,7 +306,7 @@
   .framework-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.6rem; box-shadow:0 20px 40px -32px rgba(15,30,60,0.25); }
   .framework-tag{
     display:inline-block; font-size:0.68rem; font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--rust); background:rgba(155,52,18,0.08); padding:0.3rem 0.65rem; border-radius:999px; margin-bottom:1rem;
+    color:white; background:var(--accent); padding:0.3rem 0.65rem; border-radius:999px; margin-bottom:1rem;
   }
   .framework-card h3{ font-size:1.4rem; font-weight:700; color:var(--navy); margin-bottom:0.6rem; }
   .framework-card p{ font-size:1rem; line-height:1.6; color:var(--body); }

@@ -6,22 +6,31 @@
 <title>Irene Ying-Ju Chen — Empowering Stress-Free Retirement Decisions</title>
 <style>
   :root{
-    --bg: #f7f9ff;
-    --bg-card: #ffffff;
-    --navy: #001430;
-    --navy-soft: #2b3648;
-    --body-text: #565b66;
-    --muted: #7b8697;
-    --gold: #9b3412;
-    --gold-bar: #c9973a;
-    --red: #c54b55;
-    --border: #e3e7f1;
-    --border-soft: #eceff6;
-    --active-step: #08244f;
-    --inactive-step: #9aa2af;
-    --blue-accent: #1c4fd6;
-    --yellow-accent: #e8b930;
-    --green-accent: #3f8f5f;
+    /* ---------- Neutral surfaces ---------- */
+    --bg: #f8f9fb;          /* page background — clean, near-white cool gray */
+    --bg-card: #ffffff;     /* card / panel surface */
+
+    /* ---------- Text ---------- */
+    --navy: #101828;        /* primary text — dark charcoal-navy, not pure black */
+    --navy-soft: #344054;   /* secondary headings / emphasis text */
+    --body-text: #475467;   /* body copy */
+    --muted: #667085;       /* tertiary / meta text, inactive states, icons */
+
+    /* ---------- Borders & dividers ---------- */
+    --border: #e4e7ec;
+    --border-soft: #eef1f5;
+
+    /* ---------- Accent (single, refined) ---------- */
+    --accent: #2952cc;       /* primary buttons, links, highlights */
+    --accent-hover: #1f3fa3; /* hover/active state of the accent */
+    --accent-soft: #eaf0fd;  /* subtle accent-tinted fills/backgrounds */
+
+    /* ---------- Status hierarchy (info / warning / error) ---------- */
+    --info: #2952cc;
+    --success: #12805c;
+    --warning: #b54708;
+    --danger: #b42318;
+
     --max-width: 1280px;
     --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -41,6 +50,14 @@
   img{ max-width: 100%; display: block; }
 
   a{ color: inherit; text-decoration: none; }
+
+  /* Consistent, intentional focus state for every interactive element */
+  a:focus-visible,
+  button:focus-visible{
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
   .wrap{
     max-width: var(--max-width);
@@ -82,6 +99,7 @@
   }
 
   .main-nav a.active{
+    color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 1.5px;
@@ -89,6 +107,11 @@
 
   .main-nav a:not(.active){
     color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .main-nav a:not(.active):hover{
+    color: var(--navy);
   }
 
   .icon-btn{
@@ -100,7 +123,9 @@
     background: var(--navy);
     border-radius: 5px;
     color: white;
+    transition: background-color 0.2s ease;
   }
+  .icon-btn:hover{ background: var(--accent); }
   .icon-btn svg{ width: 14px; height: 14px; }
 
   /* ---------- Mobile navigation (hamburger + drawer) ----------
@@ -121,7 +146,9 @@
     padding: 0;
     cursor: pointer;
     flex-shrink: 0;
+    transition: border-color 0.2s ease;
   }
+  .hamburger-btn:hover{ border-color: var(--accent); }
   .hamburger-btn__line{
     width: 18px;
     height: 2px;
@@ -161,7 +188,7 @@
     color: var(--navy-soft);
     border-bottom: 1px solid var(--border-soft);
   }
-  .mobile-nav a.active{ color: var(--navy); }
+  .mobile-nav a.active{ color: var(--accent); }
   .mobile-nav a:last-child{ border-bottom: none; }
   .mobile-nav__linkedin svg{ width: 18px; height: 18px; }
 
@@ -194,7 +221,7 @@
      ===================================================================== */
 
   :root{
-    --card-muted: #eef1f6;
+    --card-muted: #f2f4f7;
   }
 
   .home-intro{
@@ -264,7 +291,7 @@
      and hovering elsewhere on the card does nothing. */
   .case-study:has(a.case-study__cta:hover) .case-study__media{
     transform: scale(1.015);
-    box-shadow: 0 20px 40px -28px rgba(15, 30, 60, 0.3);
+    box-shadow: 0 20px 40px -28px rgba(16, 24, 40, 0.25);
   }
 
   .case-study__media img{
@@ -290,7 +317,7 @@
 
   .case-study__media--split .case-study__media-panel:first-child{
     flex: 0 0 46%;
-    background: #efe9dd;
+    background: var(--card-muted);
   }
 
   .case-study__media--split .case-study__media-panel:last-child{
@@ -375,8 +402,11 @@
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--navy);
+    color: var(--accent);
+    transition: color 0.2s ease;
   }
+
+  .case-study__cta:hover{ color: var(--accent-hover); }
 
   /* Project cards ("How I work") still use the whole-card stretched-click
      pattern; only the case-study article cards below were scoped down to
@@ -410,7 +440,7 @@
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--navy-soft);
+    color: var(--muted);
     cursor: default;
   }
 
@@ -418,7 +448,7 @@
     width: 13px;
     height: 13px;
     flex-shrink: 0;
-    color: var(--navy-soft);
+    color: var(--muted);
   }
 
   .case-study--reverse .case-study__content{ order: 2; }
@@ -455,7 +485,7 @@
 
   .project-card:has(a.case-study__cta):hover{
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px -28px rgba(15, 30, 60, 0.3);
+    box-shadow: 0 20px 40px -28px rgba(16, 24, 40, 0.25);
   }
 
   .project-card h3{

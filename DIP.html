@@ -6,21 +6,49 @@
 <title>Irene Ying-Ju Chen — Turn pension decisions from stressful to confident</title>
 <style>
   :root{
-    --bg: #f7f9ff;
+    --bg: #f8f9fb;
     --bg-card: #ffffff;
-    --navy: #001430;
-    --navy-soft: #2b3648;
-    --body-text: #565b66;
-    --muted: #7b8697;
-    --gold: #9b3412;
-    --gold-bar: #c9973a;
-    --red: #c54b55;
-    --border: #e3e7f1;
-    --border-soft: #eceff6;
-    --active-step: #08244f;
-    --inactive-step: #9aa2af;
-    --blue-accent: #1c4fd6;
-    --yellow-accent: #e8b930;
+    --card-muted: #f2f4f7;
+    --navy: #101828;
+    --navy-soft: #344054;
+    --body-text: #475467;
+    --muted: #667085;
+    --border: #e4e7ec;
+    --border-soft: #eef1f5;
+
+    /* Single, refined accent — shared with index.html and the other
+       case-study pages so the whole site reads as one cohesive product. */
+    --accent: #2952cc;
+    --accent-hover: #1f3fa3;
+    --accent-soft: #eaf0fd;
+    --accent-tint: #d6e3fb;
+    --accent-on-dark: #7c9df5;
+
+    /* Legacy names kept (values repointed to the shared accent) so the
+       many existing var(--gold)/var(--blue-accent) references below
+       don't need to be renamed one-by-one. --gold stays mapped to the
+       primary accent (eyebrows, section labels, active states); true
+       badge/highlight elements below reference --highlight directly. */
+    --gold: var(--accent);
+    --gold-bar: var(--accent);
+    --blue-accent: var(--accent);
+    --yellow-accent: var(--highlight);
+
+    /* Secondary highlight — a deliberate second color, reserved for
+       badges and dark-section call-outs so it never competes with the
+       primary accent used for links, buttons, and focus states. */
+    --highlight: #e8b930;
+    --highlight-text: var(--navy);
+
+    /* Status hierarchy — used only where meaning is semantic. */
+    --red: #b42318;
+    --success: #12805c;
+
+    /* Step indicator: a filled/selected step uses the accent; an
+       unselected step uses a soft neutral gray. */
+    --active-step: var(--accent);
+    --inactive-step: #98a2b3;
+
     --max-width: 1280px;
     --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
@@ -81,6 +109,7 @@
   }
 
   .main-nav a.active{
+    color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 1.5px;
@@ -88,6 +117,11 @@
 
   .main-nav a:not(.active){
     color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .main-nav a:not(.active):hover{
+    color: var(--navy);
   }
 
   .icon-btn{
@@ -99,7 +133,9 @@
     background: var(--navy);
     border-radius: 5px;
     color: white;
+    transition: background-color 0.2s ease;
   }
+  .icon-btn:hover{ background: var(--accent); }
   .icon-btn svg{ width: 14px; height: 14px; }
 
   /* ---------- Mobile navigation (hamburger + drawer) ----------
@@ -120,7 +156,9 @@
     padding: 0;
     cursor: pointer;
     flex-shrink: 0;
+    transition: border-color 0.2s ease;
   }
+  .hamburger-btn:hover{ border-color: var(--accent); }
   .hamburger-btn__line{
     width: 18px;
     height: 2px;
@@ -160,7 +198,7 @@
     color: var(--navy-soft);
     border-bottom: 1px solid var(--border-soft);
   }
-  .mobile-nav a.active{ color: var(--navy); }
+  .mobile-nav a.active{ color: var(--accent); }
   .mobile-nav a:last-child{ border-bottom: none; }
   .mobile-nav__linkedin svg{ width: 18px; height: 18px; }
 
@@ -260,13 +298,13 @@
   .dots span{
     width: 6px; height: 6px;
     border-radius: 50%;
-    background: #d7dbe6;
+    background: var(--border);
   }
   .dots span.on{ background: var(--navy); }
 
 
   .divider-dotted{
-    border-top: 1.5px dotted #c7ccd6;
+    border-top: 1.5px dotted var(--border);
     margin: 0.5rem 0 0.35rem;
   }
 
@@ -577,9 +615,8 @@
     justify-content: center;
     font-size: 0.85rem;
     font-weight: 700;
-    background: var(--bg-card);
-    border: 1.5px solid var(--inactive-step);
-    color: var(--inactive-step);
+    background: var(--navy);
+    color: white;
     transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
   }
 
@@ -590,8 +627,7 @@
   }
 
   .step-btn.is-active .step-num{
-    background: var(--active-step);
-    border-color: var(--active-step);
+    background: var(--red);
     color: #fff;
   }
 
@@ -623,7 +659,7 @@
 
 
   .process-step.is-active .process-step__card{
-    border: 2px solid var(--gold);
+    border: 2px solid var(--red);
     box-shadow: 0 18px 30px -18px rgba(8, 36, 79, 0.35);
     transform: translateY(-3px);
   }
@@ -636,8 +672,8 @@
     justify-content: center;
     gap: 0.5rem;
     margin: 1.1rem auto 0;
-    background: var(--gold);
-    color: #fff;
+    background: var(--red);
+    color: var(--bg-card);
     font-weight: 700;
     font-size: 0.85rem;
     line-height: 1.15;
@@ -723,8 +759,8 @@
   }
 
   .result-step__card--muted{
-    background: #e9ecf2;
-    border: 1.5px dashed #c7cedb;
+    background: var(--card-muted);
+    border: 1.5px dashed var(--border);
     padding-top: 1.4rem;
   }
 
@@ -760,7 +796,7 @@
     font-size: 0.9rem;
     font-weight: 600;
     line-height: 1.35;
-    color: #cfd7e6;
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .result-step__stat{
@@ -970,7 +1006,7 @@
   .stat-number{
     font-size: 2.4rem;
     font-weight: 800;
-    color: var(--gold);
+    color: var(--highlight);
     line-height: 1;
     min-width: 4ch;
   }
@@ -1057,7 +1093,7 @@
 
 
   .insight-card__header{
-    background: #0b1f41;
+    background: var(--navy);
     color: #fff;
     display: flex;
     align-items: center;
@@ -1155,8 +1191,8 @@
   }
 
   .takeaway-card__header{
-    background: #f5b942;
-    color: var(--navy);
+    background: var(--highlight);
+    color: var(--highlight-text);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -1192,7 +1228,7 @@
     height: 44px;
     flex-shrink: 0;
     border-radius: 10px;
-    background: #eef1f6;
+    background: var(--card-muted);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1223,7 +1259,7 @@
     font-size: 0.88rem;
     font-weight: 400;
     line-height: 1.65;
-    color: #44474e;
+    color: var(--body-text);
   }
   .takeaway-content li::before{
     content: "";
@@ -1374,7 +1410,7 @@
   }
 
   .benchmark-table thead th{
-    background: #eef1f6;
+    background: var(--card-muted);
     border-bottom: 1px solid var(--border);
     vertical-align: middle;
   }
@@ -1409,7 +1445,7 @@
     width: 96px;
     height: 34px;
     border-radius: 6px;
-    background: #eef1f6;
+    background: var(--card-muted);
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -1429,16 +1465,16 @@
   }
   .status-icon svg{ width: 15px; height: 15px; }
 
-  .status-icon--yes{ background: #22c55e; }
+  .status-icon--yes{ background: var(--success); }
   .status-icon--yes svg{ color: #fff; }
 
-  .status-icon--no{ background: #f76e7c; }
+  .status-icon--no{ background: var(--red); }
   .status-icon--no svg{ color: #fff; }
 
   /* ---------- How Might We ---------- */
 
   .hmw{
-    background: #00284f;
+    background: var(--navy);
     padding: 5rem 0;
   }
 
@@ -1475,7 +1511,7 @@
     right: 0.6rem;
     font-size: 5rem;
     font-weight: 800;
-    color: #eef1f6;
+    color: var(--card-muted);
     line-height: 1;
     z-index: 0;
     user-select: none;
@@ -1500,8 +1536,8 @@
     z-index: 1;
     display: inline-block;
     margin-top: auto;
-    background: #cbd9f6;
-    color: #1d3a72;
+    background: var(--accent-tint);
+    color: var(--accent-hover);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -1527,7 +1563,7 @@
   .pillar__number{
     font-size: 2.6rem;
     font-weight: 800;
-    color: #ffc968;
+    color: var(--accent);
     line-height: 1;
     margin: 0 0 0.6rem;
   }
@@ -1661,7 +1697,7 @@
   }
 
   .detail-card__caption{
-    background: #00284f;
+    background: var(--navy);
     color: #fff;
     display: flex;
     align-items: center;
@@ -1893,7 +1929,7 @@
   .outcome-stat__value{
     font-size: 2.2rem;
     font-weight: 800;
-    color: var(--navy);
+    color: #12805c;
     line-height: 1;
     margin: 0 0 0.6rem;
   }
@@ -1901,7 +1937,7 @@
   .outcome-stat__label{
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--navy);
+    color: #12805c;
     margin: 0;
   }
 
